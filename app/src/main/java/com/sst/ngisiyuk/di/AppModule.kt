@@ -3,6 +3,7 @@ package com.sst.ngisiyuk.di
 import com.google.gson.GsonBuilder
 import com.sst.ngisiyuk.repositories.ApiServicesRepo
 import com.sst.ngisiyuk.services.ApiServices
+import com.sst.ngisiyuk.services.NgisiyukServices
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +18,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-    const val baseURL = "https://admin.hokygo.com/api_jasa/"
+    const val baseURL = "https://ngisiyuk.dagoo.id/api/"
 
     @Singleton
     @Provides
@@ -47,5 +48,9 @@ object AppModule {
     @Singleton
     @Provides
     fun providesRepository(api :ApiServices) = ApiServicesRepo(api)
+
+    @Singleton
+    @Provides
+    fun providesNgisiyuk(retrofit: Retrofit):NgisiyukServices = retrofit.create(NgisiyukServices::class.java)
 
 }

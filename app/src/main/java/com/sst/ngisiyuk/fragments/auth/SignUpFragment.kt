@@ -26,6 +26,7 @@ class SignUpFragment : Fragment() {
     lateinit var namaUser: EditText
     lateinit var nomorUser: EditText
     lateinit var kotaUser: EditText
+    lateinit var pin:EditText
     private val viewModel : AuthViewModel by activityViewModels()
     private lateinit var loading : LoadingBar
 
@@ -45,6 +46,8 @@ class SignUpFragment : Fragment() {
         namaUser = binding.namaUser
         nomorUser = binding.nomorSignUpUser
         kotaUser = binding.kotaUser
+        pin = binding.signupPin
+
 
         binding.signupPin.apply {
             setOnFocusChangeListener { v, hasFocus ->
@@ -77,23 +80,18 @@ class SignUpFragment : Fragment() {
 
             }else {
                 loading.showAlert(false)
-                viewModel.cekPenyediaJasa(nomorUser.text.toString())
+                viewModel.cekUser(nomorUser.text.toString())
             }
         }
 
 
         viewModel.hasilCekNomor.observe(viewLifecycleOwner, {
-            if (it?.data == 0){
-                viewModel.fillDataUser(nomorUser.text.toString().drop(1), namaUser.text.toString(), kotaUser.text.toString())
+            if (it?.status == false){
+                viewModel.fillDataUser(nomorUser.text.toString().drop(1), namaUser.text.toString(), kotaUser.text.toString(),pin.text.toString())
                 viewModel.startPhoneNumberVerification(nomorUser.text.toString(), requireActivity())
-            } else if (it?.data == 1) {
+            } else if (it?.data == true) {
                 loading.closeAlert()
                 binding.signUpNotif.text = "*nomor anda sudah terdaftar, silahkan login"
-                Toast.makeText(
-                    requireContext(),
-                    "Nomor Anda Sudah Terdaftar, Silahkan Login",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
         })
 

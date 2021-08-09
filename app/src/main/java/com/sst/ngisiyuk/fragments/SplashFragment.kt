@@ -23,7 +23,7 @@ class SplashFragment : Fragment() {
         auth = FirebaseAuth.getInstance()
         if (auth.currentUser == null){
             findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToAuthFragment())
-        }
+        } else findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
 
 
         return binding.root

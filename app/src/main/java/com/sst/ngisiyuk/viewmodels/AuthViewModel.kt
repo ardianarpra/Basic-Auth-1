@@ -7,11 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.*
-import com.sst.ngisiyuk.models.CekPenyediaJasaModel
-import com.sst.ngisiyuk.models.CreatePartnerModel
 import com.sst.ngisiyuk.models.CredsModel
-import com.sst.ngisiyuk.repositories.ApiServicesRepo
-
+import com.sst.ngisiyuk.models.ngisiyuk.CekPelanggan
+import com.sst.ngisiyuk.models.ngisiyuk.CreateProfil
+import com.sst.ngisiyuk.services.NgisiyukServices
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
@@ -19,15 +18,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AuthViewModel  @Inject constructor(
-    private val repos: ApiServicesRepo,
+    private val api: NgisiyukServices,
     ) : ViewModel() {
 
-    var firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
+    private var firebaseAuth:FirebaseAuth = FirebaseAuth.getInstance()
     val credential = MutableLiveData<CredsModel>()
-    val hasilCekNomor = MutableLiveData<CekPenyediaJasaModel?>()
+    val hasilCekNomor = MutableLiveData<CekPelanggan?>()
     val otpSent = MutableLiveData(false)
     val isSuccessSignIn = MutableLiveData<Boolean>()
-    val signUpResponse = MutableLiveData<CreatePartnerModel>()
+    val signUpResponse = MutableLiveData<CreateProfil>()
     val isVerificationInComplete = MutableLiveData(false)
     val isVerificationFail = MutableLiveData(false)
     val phoneAuthCredential = MutableLiveData<PhoneAuthCredential>()
@@ -37,13 +36,30 @@ class AuthViewModel  @Inject constructor(
 
     // user field for signUp
 
-    var phoneNumber = ""
-    var namaUser = ""
-    var kotaUser = ""
-    var pin = ""
+    private var phoneNumber = ""
+    private var namaUser = ""
+    private var kotaUser = ""
+    private var pin = ""
 
 
-
+    fun cekUser(number :String){
+        viewModelScope.launch {
+            val response = api.cekPelanggan(number.drop(1))
+            if (response.isSuccessful) hasilCekNomor.value = response.body()
+        }
+    }
+    fun signUp() {
+        viewModelScope.launch {
+            val response = api.createProfil(phoneNumber, namaUser, kotaUser, pin, "12345")
+            if (response.isSuccessful) signUpResponse.value = response.body()
+        }
+    }
+    fun fillDataUser(no: String, nama: String, alamat: String, pin:String){
+        phoneNumber = no
+        namaUser = nama
+        kotaUser = alamat
+        this.pin = pin
+    }
 
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks(){
         override fun onVerificationCompleted(p0: PhoneAuthCredential) {
@@ -117,11 +133,7 @@ class AuthViewModel  @Inject constructor(
          signInWithPhoneAuthCredential(creds, activity)
     }
 
-    fun cekPenyediaJasa(number :String){
-        viewModelScope.launch {
-            hasilCekNomor.value = repos.cekPenyediaJasa(number.drop(1)).data?.body()
-        }
-    }
+
 
     // [START resend_verification]
     fun resendVerificationCode(
@@ -141,18 +153,9 @@ class AuthViewModel  @Inject constructor(
     }
     // [END resend_verification]
 
-    fun signUp() {
-        viewModelScope.launch {
-            signUpResponse.value = repos.createProfilMitra(phoneNumber, namaUser,kotaUser).data?.body()
-        }
-    }
 
-    fun fillDataUser(no: String, nama: String, alamat: String){
-        phoneNumber = no
-        namaUser = nama
-        kotaUser = alamat
 
-    }
+
 
     fun nullifying(){
         hasilCekNomor.value = null

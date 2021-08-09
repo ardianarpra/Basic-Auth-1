@@ -9,7 +9,14 @@
         android:id="@+id/homeFragment"
         android:name="com.sst.ngisiyuk.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_showSubServicesFragment"
+            app:destination="@id/showSubServicesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_pulsaDataContainerFragment"
+            app:destination="@id/pulsaDataContainerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashFragment"
         android:name="com.sst.ngisiyuk.fragments.SplashFragment"
@@ -73,4 +80,18 @@
             app:popUpTo="@id/main_nav"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/showSubServicesFragment"
+        android:name="com.sst.ngisiyuk.fragments.ShowSubServicesFragment"
+        android:label="fragment_show_sub_services"
+        tools:layout="@layout/fragment_show_sub_services" >
+        <argument
+            android:name="produk"
+            app:argType="com.sst.ngisiyuk.models.ngisiyuk.Produk" />
+    </fragment>
+    <fragment
+        android:id="@+id/pulsaDataContainerFragment"
+        android:name="com.sst.ngisiyuk.fragments.PulsaDataContainerFragment"
+        android:label="fragment_pulsa_data"
+        tools:layout="@layout/fragment_pulsa_data" />
 </navigation>

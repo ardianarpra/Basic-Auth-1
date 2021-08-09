@@ -31,12 +31,10 @@ class SignInFragment : Fragment() {
         loading = LoadingBar(requireContext())
 
         binding.buttonLogin.setOnClickListener {
-
-
             if (binding.nomorLoginUser.text.toString().isNotBlank()) {
                 loading.showAlert(false)
                 authViewModel.updateNumber(binding.nomorLoginUser.text.toString())
-                authViewModel.cekPenyediaJasa(binding.nomorLoginUser.text.toString())
+                authViewModel.cekUser(binding.nomorLoginUser.text.toString())
             }else{
                 Toast.makeText(requireContext(), "Nomor HP tidak boleh kosong", Toast.LENGTH_SHORT).show()
             }
@@ -46,11 +44,11 @@ class SignInFragment : Fragment() {
 
         authViewModel.hasilCekNomor.observe(viewLifecycleOwner, {
             authViewModel.resetIsVerificationFail()
-            if (it?.data == 0){
+            if (it?.status == false){
                 loading.closeAlert()
                 binding.loginNotif.text = "*nomor anda nelum terdaftar, silahkan login"
                 Toast.makeText(requireContext(), "Nomor belum terdaftar", Toast.LENGTH_SHORT).show()
-            } else if (it?.data == 1) authViewModel.startPhoneNumberVerification(binding.nomorLoginUser.text.toString(), requireActivity())
+            } else if (it?.status == true) authViewModel.startPhoneNumberVerification(binding.nomorLoginUser.text.toString(), requireActivity())
         })
 
         authViewModel.otpSent.observe(viewLifecycleOwner, {
