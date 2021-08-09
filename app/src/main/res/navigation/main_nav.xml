@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_pulsaDataContainerFragment"
             app:destination="@id/pulsaDataContainerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_gamePrabaDigiFragment"
+            app:destination="@id/gamePrabaDigiFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -93,5 +96,18 @@
         android:id="@+id/pulsaDataContainerFragment"
         android:name="com.sst.ngisiyuk.fragments.PulsaDataContainerFragment"
         android:label="fragment_pulsa_data"
-        tools:layout="@layout/fragment_pulsa_data" />
+        tools:layout="@layout/fragment_pulsa_data" >
+        <argument
+            android:name="tipe"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/gamePrabaDigiFragment"
+        android:name="com.sst.ngisiyuk.fragments.GamePrabaDigiFragment"
+        android:label="fragment_game_praba_digi"
+        tools:layout="@layout/fragment_game_praba_digi" >
+        <argument
+            android:name="tipe"
+            app:argType="string" />
+    </fragment>
 </navigation>
