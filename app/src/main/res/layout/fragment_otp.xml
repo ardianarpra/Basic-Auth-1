@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.auth.OtpFragment">
+
+
+    <EditText
+        android:maxLength="6"
+        android:id="@+id/kode_otp"
+        android:layout_width="325dp"
+        android:layout_height="64dp"
+        android:background="@drawable/text_input_bg"
+        android:drawableLeft="@drawable/ic_phone"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="Masukkan Kode Verifikasi anda"
+        android:inputType="number"
+        android:textColorHint="#26000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.329" />
+
+
+    <TextView
+        android:id="@+id/countdown_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:text="60"
+        app:layout_constraintBottom_toTopOf="@+id/verif_otp_button"
+        app:layout_constraintEnd_toEndOf="@+id/kode_otp"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kode_otp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/verif_otp_button"
+        android:layout_width="325dp"
+        android:layout_height="52dp"
+        android:background="@drawable/button_login"
+        android:text="Buat Akun"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:enabled="false"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kode_otp"
+        app:layout_constraintVertical_bias="0.299" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

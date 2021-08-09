@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    app:flexDirection="column"
+
+    app:alignItems="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.auth.SignUpFragment">
+
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_flexGrow="1"
+        app:justifyContent="center"
+        app:alignItems="center"
+        >
+
+        <ImageView
+
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.058"
+            app:srcCompat="@drawable/im_hokygo"
+
+            />
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:flexDirection="column"
+        app:alignItems="center"
+        app:justifyContent="flex_end"
+
+        >
+
+        <EditText
+            android:id="@+id/nomor_sign_up_user"
+            android:layout_width="325dp"
+            android:layout_height="64dp"
+            android:background="@drawable/text_input_bg"
+            android:drawableLeft="@drawable/ic_phone"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Nomor HP"
+            android:inputType="number"
+            android:textColorHint="#26000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintVertical_bias="0.067" />
+
+        <EditText
+            android:id="@+id/nama_user"
+            android:layout_width="325dp"
+            android:layout_height="61dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/text_input_bg"
+            android:drawableLeft="@drawable/ic_account_pict"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Nama"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#26000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nomor_sign_up_user"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/kota_user"
+            android:layout_width="325dp"
+            android:layout_height="61dp"
+            android:background="@drawable/text_input_bg"
+            android:drawableLeft="@drawable/ic_map"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Kota Anda"
+            android:textColorHint="#26000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nama_user"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/signup_pin"
+            android:layout_width="325dp"
+            android:layout_height="61dp"
+            android:background="@drawable/text_input_bg"
+            android:drawableLeft="@drawable/ic_map"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="Pin Anda"
+            android:textColorHint="#26000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nama_user"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+    <TextView
+
+        app:layout_flexBasisPercent="10%"
+        android:gravity="center"
+        android:id="@+id/sign_up_notif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@+id/buat_akun_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/kota_user"
+        app:layout_constraintTop_toBottomOf="@+id/kota_user"
+        app:layout_constraintVertical_bias="0.862" />
+
+    <Button
+        android:id="@+id/buat_akun_button"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+
+
+        android:layout_marginHorizontal="20dp"
+        android:background="@drawable/button_login"
+        android:text="Buat Akun"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kota_user"
+        app:layout_constraintVertical_bias="0.301" />
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_flexBasisPercent="10%"
+        android:gravity="center"
+        android:text="or with"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buat_akun_button"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:justifyContent="center"
+        app:layout_flexBasisPercent="10%"
+        app:alignItems="flex_start"
+        >
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Punya Akun?"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.447"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:layout_constraintVertical_bias="0.055" />
+
+        <TextView
+            android:id="@+id/sign_in_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:text="Login"
+            android:textColor="@color/secondary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toTopOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.0" />
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+
+</com.google.android.flexbox.FlexboxLayout>
