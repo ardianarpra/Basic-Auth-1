@@ -19,6 +19,15 @@
         <action
             android:id="@+id/action_homeFragment_to_gamePrabaDigiFragment"
             app:destination="@id/gamePrabaDigiFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_PLNGroupFragment"
+            app:destination="@id/PLNGroupFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_UniversalFragment"
+            app:destination="@id/UniversalFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_PLNTokenFragment"
+            app:destination="@id/PLNTokenFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -109,5 +118,32 @@
         <argument
             android:name="tipe"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/PLNGroupFragment"
+        android:name="com.sst.ngisiyuk.fragments.PLNGroupFragment"
+        android:label="fragment_p_l_n_group"
+        tools:layout="@layout/fragment_p_l_n_group" >
+        <argument
+            android:name="tipe"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/UniversalFragment"
+        android:name="com.sst.ngisiyuk.fragments.UniversalFragment"
+        android:label="fragment_p_l_n_pasca"
+        tools:layout="@layout/fragment_p_l_n_pasca" >
+        <argument
+            android:name="tipe"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/PLNTokenFragment"
+        tools:layout="@layout/fragment_p_l_n_token"
+        android:name="com.sst.ngisiyuk.fragments.PLNTokenFragment"
+        android:label="PLNTokenFragment" >
+        <argument android:name="tipe"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 </navigation>

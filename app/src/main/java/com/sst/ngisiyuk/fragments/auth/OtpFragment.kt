@@ -46,7 +46,6 @@ class OtpFragment : Fragment() {
         viewModel.credential.observe(viewLifecycleOwner, {creds ->
             viewModel.signUpResponse.observe(viewLifecycleOwner, {
                 if (it.status){
-                    println("status login true dan kok gak login yha ?")
                     viewModel.verifyPhoneNumberWithCode(creds.otpCode, binding.kodeOtp.text.toString(), requireActivity())
                 } else Toast.makeText(requireContext(), "signUp gagal", Toast.LENGTH_SHORT).show()
             })

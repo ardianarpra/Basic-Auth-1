@@ -11,6 +11,7 @@ import com.sst.ngisiyuk.adapters.AllServiceAdapter
 import com.sst.ngisiyuk.databinding.FragmentHomeBinding
 import com.sst.ngisiyuk.models.ngisiyuk.Produk
 import com.sst.ngisiyuk.viewmodels.LayananViewModel
+import com.sst.ngisiyuk.viewmodels.UserDataViewModel
 import jp.wasabeef.recyclerview.animators.SlideInDownAnimator
 
 
@@ -18,11 +19,13 @@ class HomeFragment : Fragment() {
 
     lateinit var binding : FragmentHomeBinding
     private val layananViewModel : LayananViewModel by activityViewModels()
+    private val userVM :UserDataViewModel by activityViewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+        userVM
 
         layananViewModel.allServices.observe(viewLifecycleOwner,{
             initServiceRV(it)
@@ -38,9 +41,6 @@ class HomeFragment : Fragment() {
             setAdapter(adapter)
             itemAnimator = SlideInDownAnimator()
         }
-
-
-
     }
 
 

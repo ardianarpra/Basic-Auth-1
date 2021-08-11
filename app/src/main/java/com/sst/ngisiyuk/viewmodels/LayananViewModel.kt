@@ -4,10 +4,8 @@ import android.text.Editable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sst.ngisiyuk.models.ngisiyuk.GetLayananModel
-import com.sst.ngisiyuk.models.ngisiyuk.IsiLayananModel
-import com.sst.ngisiyuk.models.ngisiyuk.ListProdukModel
-import com.sst.ngisiyuk.models.ngisiyuk.Produk
+import com.sst.ngisiyuk.models.ngisiyuk.*
+import com.sst.ngisiyuk.repositories.LayananRepository
 import com.sst.ngisiyuk.services.NgisiyukServices
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -15,13 +13,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LayananViewModel @Inject constructor(
-    private val api : NgisiyukServices
+    private val api : NgisiyukServices,
+    private val layananRepo :LayananRepository
 ):ViewModel() {
 
 
     val allServices = MutableLiveData<ArrayList<Produk>>()
-    val subProduct = MutableLiveData<ListProdukModel>()
+    val subProduct = MutableLiveData<ListProdukModel?>()
     val isiLayanan = MutableLiveData<IsiLayananModel?>()
+    val createInquiryResponse = MutableLiveData<CreateInquiryModel>()
 
     private val layanan = arrayListOf<Produk>()
 
@@ -102,18 +102,17 @@ class LayananViewModel @Inject constructor(
 
     fun getListProduk(tipe: String, provider:String){
         viewModelScope.launch {
-            val response = api.listProduk(tipe, provider)
-
-            subProduct.value = response.body()
-
-            println(response.body())
+            val response = layananRepo.getListProduk(tipe, provider)
+            if(response.data?.body() == null){
+               TODO("Mengatur get list produk yang bernilai null")
+            } else subProduct.value = response.data.body()
         }
     }
 
     fun getIsiLayanan(tipe: String){
         viewModelScope.launch {
             val response = api.isiLayanan(tipe)
-
+            println(response.body())
             isiLayanan.value = response.body()
 
         }
@@ -137,6 +136,18 @@ class LayananViewModel @Inject constructor(
                telkomsel.contains(nomor) -> {getListProduk(tipe, "Telkomsel")}
                else -> {}
            }
+        }
+    }
+
+    fun nullifySubProduk() {
+        subProduct.value = null
+    }
+
+    fun createInquiry(idPelanggan:String , kode:String, tujuan:String){
+        viewModelScope.launch {
+            val response = api.createInquiry(idPelanggan, kode, tujuan)
+
+            if (response.isSuccessful) createInquiryResponse.value = response.body()
         }
     }
 

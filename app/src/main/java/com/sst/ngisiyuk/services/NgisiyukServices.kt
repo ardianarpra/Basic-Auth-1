@@ -99,11 +99,13 @@ interface NgisiyukServices {
         @Field("kd") kd:String, // kd_engkrip
     ): Response<AssetPelanggan>
 
-
-
-
-
-
+    @FormUrlEncoded
+    @POST("create_inquiry")
+    suspend fun createInquiry(
+        @Field ("id_pelanggan")idPelanggan: String,
+        @Field ("kode")kode: String,
+        @Field ("tujuan")tujuan: String
+    ) : Response<CreateInquiryModel>
 
 
 }

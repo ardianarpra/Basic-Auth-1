@@ -103,5 +103,7 @@ dependencies {
 
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
 
+    implementation "com.github.skydoves:powerspinner:1.1.8"
+
 
 }

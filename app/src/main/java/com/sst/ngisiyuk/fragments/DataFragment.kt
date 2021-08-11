@@ -33,7 +33,10 @@ class DataFragment : Fragment() {
         layananVM.getIsiLayanan(tipe)
         inputNomor = binding.inputNomor
         layananVM.subProduct.observe(viewLifecycleOwner,{
-            initSubProdukRV(it.data)
+            it?.data?.let {
+                initSubProdukRV(it)
+
+            }
         })
 
 

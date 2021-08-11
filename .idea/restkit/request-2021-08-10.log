@@ -1,0 +1,60 @@
+############################# 2021-08-10T06:25:09.273267700 #############################
+>>> POST https://ngisiyuk.dagoo.id/api/create_inquiry HTTP/1.1
+
+<<< HTTP/1.1 200 OK [cost: 2106ms]
+Connection: Keep-Alive
+Keep-Alive: timeout=5, max=100
+x-powered-by: PHP/7.4.20
+set-cookie: ci_session=47ea309dc656e5c052f71d50b40abf8384ee3207; expires=Tue, 10-Aug-2021 06:15:02 GMT; Max-Age=7200; path=/; HttpOnly; secure
+expires: Thu, 19 Nov 1981 08:52:00 GMT
+cache-control: no-store, no-cache, must-revalidate
+pragma: no-cache
+content-type: text/html; charset=UTF-8
+vary: Accept-Encoding,User-Agent
+date: Tue, 10 Aug 2021 04:15:02 GMT
+server: LiteSpeed
+alt-svc: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+
+Parameter yang dikirimkan belum lengkap, silahkan dicek kembali
+
+
+############################# 2021-08-10T06:27:48.105966300 #############################
+>>> POST https://ngisiyuk.dagoo.id/api/create_inquiry HTTP/1.1
+
+<<< HTTP/1.1 200 OK [cost: 2969ms]
+Connection: Keep-Alive
+Keep-Alive: timeout=5, max=100
+x-powered-by: PHP/7.4.20
+set-cookie: ci_session=45022988af15eb22e86789407eda58d99644f27c; expires=Tue, 10-Aug-2021 06:17:41 GMT; Max-Age=7200; path=/; HttpOnly; secure
+expires: Thu, 19 Nov 1981 08:52:00 GMT
+cache-control: no-store, no-cache, must-revalidate
+pragma: no-cache
+content-type: text/html; charset=UTF-8
+vary: Accept-Encoding,User-Agent
+date: Tue, 10 Aug 2021 04:17:41 GMT
+server: LiteSpeed
+alt-svc: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+
+Parameter yang dikirimkan belum lengkap, silahkan dicek kembali
+
+
+############################# 2021-08-10T06:28:25.635055800 #############################
+>>> POST https://ngisiyuk.dagoo.id/api/create_inquiry HTTP/1.1
+
+<<< HTTP/1.1 200 OK [cost: 1196ms]
+Connection: Keep-Alive
+Keep-Alive: timeout=5, max=100
+x-powered-by: PHP/7.4.20
+set-cookie: ci_session=738cece6b431d34fffd17ff5cc5e42dd5d742597; expires=Tue, 10-Aug-2021 06:18:19 GMT; Max-Age=7200; path=/; HttpOnly; secure
+expires: Thu, 19 Nov 1981 08:52:00 GMT
+cache-control: no-store, no-cache, must-revalidate
+pragma: no-cache
+content-type: text/html; charset=UTF-8
+vary: Accept-Encoding,User-Agent
+date: Tue, 10 Aug 2021 04:18:19 GMT
+server: LiteSpeed
+alt-svc: h3=":443"; ma=2592000, h3-29=":443"; ma=2592000, h3-Q050=":443"; ma=2592000, h3-Q046=":443"; ma=2592000, h3-Q043=":443"; ma=2592000, quic=":443"; ma=2592000; v="43,46"
+
+Parameter yang dikirimkan belum lengkap, silahkan dicek kembali
+
+

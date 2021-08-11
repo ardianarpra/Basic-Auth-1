@@ -5,8 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.addCallback
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.sst.ngisiyuk.adapters.GaPraDiAdapter
 import com.sst.ngisiyuk.databinding.FragmentGamePrabaDigiBinding
@@ -21,14 +22,30 @@ class GamePrabaDigiFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentGamePrabaDigiBinding.inflate(inflater, container, false)
-        val adapter = GaPraDiAdapter(requireParentFragment(), requireContext())
+        val bundle = Bundle()
+        val subProdukFragment = SubProdukOfGaPraDigiFragment()
+        bundle.putString("tipe", args.tipe)
+        subProdukFragment.arguments = bundle
+        layananVM.nullifySubProduk()
+        layananVM.subProduct.observe(viewLifecycleOwner,{
+            it?.data?.let {
+                binding.gpdViewPager.currentItem = 1
+            }
+        })
+
+
+        val adapter = GaPraDiAdapter(requireParentFragment(), subProdukFragment)
         initViewPager(adapter)
         layananVM.getIsiLayanan(args.tipe)
 
-
-
-
-
+        requireActivity().onBackPressedDispatcher.addCallback {
+            if (binding.gpdViewPager.currentItem == 1){
+                binding.gpdViewPager.currentItem = 0
+            } else {
+                isEnabled = false
+                requireActivity().onBackPressed()
+            }
+        }
 
         return binding.root
     }
@@ -43,5 +60,7 @@ class GamePrabaDigiFragment : Fragment() {
 
 
     }
+
+
 
 }

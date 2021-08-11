@@ -1,7 +1,10 @@
 package com.sst.ngisiyuk.di
 
+import android.app.Application
+import android.content.SharedPreferences
 import com.google.gson.GsonBuilder
 import com.sst.ngisiyuk.repositories.ApiServicesRepo
+import com.sst.ngisiyuk.repositories.LayananRepository
 import com.sst.ngisiyuk.services.ApiServices
 import com.sst.ngisiyuk.services.NgisiyukServices
 import dagger.Module
@@ -43,6 +46,15 @@ object AppModule {
 
     @Singleton
     @Provides
+    fun provideUserDataPrefs(application: Application): SharedPreferences = application.getSharedPreferences("UserData", 0)
+
+
+    @Singleton
+    @Provides
+    fun provideIdUser(userPref : SharedPreferences) :String = userPref.getString("id", "")!!
+
+    @Singleton
+    @Provides
     fun provideServices(retrofit: Retrofit): ApiServices = retrofit.create(ApiServices::class.java)
 
     @Singleton
@@ -52,5 +64,9 @@ object AppModule {
     @Singleton
     @Provides
     fun providesNgisiyuk(retrofit: Retrofit):NgisiyukServices = retrofit.create(NgisiyukServices::class.java)
+
+    @Singleton
+    @Provides
+    fun provideLayananProvider(ngisiyukServices: NgisiyukServices) = LayananRepository(ngisiyukServices)
 
 }
