@@ -107,5 +107,27 @@ interface NgisiyukServices {
         @Field ("tujuan")tujuan: String
     ) : Response<CreateInquiryModel>
 
+    @FormUrlEncoded
+    @POST("createTransPembelian")
+    suspend fun createTransPembelian(
+        @Field ("id_pelanggan") idPelanggan :String,
+        @Field("id_keuntungan") idKeuntungan:String,
+        @Field("tujuan") tujuan: String
+    ) : Response<TransPembelianModel>
+
+    @FormUrlEncoded
+    @POST("history_transaksi")
+    suspend fun getHistoryTransaksi(
+        @Field("id") id:String
+    ): Response<HistoryTransaksiModel>
+
+    @FormUrlEncoded
+    @POST
+    suspend fun getDetailTransaksi(
+        @Field("id") id:String,
+        @Field("tipe") tipe:String
+    ) :Response<DetailHistoryModel>
+
+
 
 }

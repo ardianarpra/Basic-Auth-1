@@ -13,14 +13,14 @@ import javax.inject.Inject
 class LayananRepository @Inject constructor(
     private val api : NgisiyukServices
 ) {
-    suspend fun getListProduk(tipe: String, provider: String): Resource<Response<ListProdukModel>>{
+    suspend fun getListProduk(tipe: String, provider: String): Resource<ListProdukModel>{
         val response = try {
             api.listProduk(tipe, provider)
         } catch (e:Exception){
             return Resource.Error("Something went wrong")
         }
 
-        return Resource.Success(response)
+        return Resource.Success(response.body()!!)
     }
 
 }

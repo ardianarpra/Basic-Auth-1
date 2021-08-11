@@ -1,0 +1,13 @@
+POST
+{BASE_URL}/createTransPembelian
+
+# Headers
+@Content-Type: application/json
+
+
+# request body
+{
+    "id_pelanggan":"awdawdwd",
+    "id_keuntungan":"awdawdawd",
+    "tujuan":"awdawdawd",
+}

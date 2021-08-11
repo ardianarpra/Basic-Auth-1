@@ -104,11 +104,11 @@ class LayananViewModel @Inject constructor(
     fun getListProduk(tipe: String, provider:String){
         viewModelScope.launch {
             val response = layananRepo.getListProduk(tipe, provider)
-            if(response.data?.body() == null){
+            if(response.data == null){
 
-            } else subProduct.value = response.data.body()
+            } else subProduct.value = response.data
 
-            println("tipe:$tipe, provider:$provider, data: ${response.data?.body()}")
+            println("tipe:$tipe, provider:$provider, data: ${response.data}")
         }
 
     }

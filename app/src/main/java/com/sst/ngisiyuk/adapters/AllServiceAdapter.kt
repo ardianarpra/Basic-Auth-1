@@ -24,7 +24,7 @@ class AllServiceAdapter(private val produk: List<Produk>): RecyclerView.Adapter<
     override fun onBindViewHolder(holder: ProdukViewHolder, position: Int) {
         with(holder){
             with(produk[position]){
-                Picasso.get().load("https://ngisiyuk.dagoo.id/$gambar").into(binding.listProdukGambar)
+                Picasso.get().load("https://admin.ngisiyuk.com/$gambar").into(binding.listProdukGambar)
                 binding.namaProduk.text = tipe
 
                 binding.root.setOnClickListener {

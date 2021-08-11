@@ -20,7 +20,7 @@ class SubProdukAdapter(val data: List<DataXXX>):RecyclerView.Adapter<SubProdukAd
     override fun onBindViewHolder(holder: SubProdukViewHolder, position: Int) {
         with(holder){
             with(data[position]){
-                Picasso.get().load("https://ngisiyuk.dagoo.id/$gambar").into(binding.listProdukGambar)
+                Picasso.get().load("https://admin.ngisiyuk.com/$gambar").into(binding.listProdukGambar)
                 binding.namaProduk.text = this.nama
 
 

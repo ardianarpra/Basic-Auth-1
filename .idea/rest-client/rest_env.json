@@ -1,0 +1,16 @@
+{
+  "dev": {
+    "BASE_URL": "https://admin.ngisiyuk.com/api/",
+    "headers": {
+      
+    }
+  },
+
+  "test": {
+    "BASE_URL": "https://admin.ngisiyuk.com/api",
+    "headers": {
+      "Content-Type": "application/json",
+      "timestamp": "{TS}"
+    }
+  }
+}
