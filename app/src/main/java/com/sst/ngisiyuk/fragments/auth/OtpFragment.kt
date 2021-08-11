@@ -89,6 +89,9 @@ class OtpFragment : Fragment() {
             if (it == true) {
                 findNavController().navigate(OtpFragmentDirections.actionOtpFragmentToHomeFragment())
                 loading.closeAlert()
+            } else if (it == false){
+                loading.closeAlert()
+                binding.statusOtp.text = "Kode Verifikasi Salah"
             }
         })
 

@@ -29,7 +29,7 @@ class SignInFragment : Fragment() {
     ): View? {
         binding = FragmentSignInBinding.inflate(layoutInflater, container, false)
         loading = LoadingBar(requireContext())
-
+        authViewModel.nullifying()
         binding.buttonLogin.setOnClickListener {
             if (binding.nomorLoginUser.text.toString().isNotBlank()) {
                 loading.showAlert(false)

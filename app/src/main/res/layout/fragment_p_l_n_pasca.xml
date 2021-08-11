@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.UniversalFragment"
+    tools:context=".fragments.PLNPascaFragment"
     app:alignItems="center"
     app:flexDirection="column"
     >
@@ -52,7 +52,7 @@
     </com.google.android.flexbox.FlexboxLayout>
 
     <FrameLayout
-        android:id="@+id/pln_info_pelanggan"
+        android:id="@+id/info_pelanggan"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_flexGrow="1"/>

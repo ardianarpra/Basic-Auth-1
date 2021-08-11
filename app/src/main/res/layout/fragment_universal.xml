@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.UniversalFragment"
+    tools:context=".fragments.PLNPascaFragment"
     app:alignItems="center"
     app:flexDirection="column"
     >
@@ -26,16 +26,17 @@
             android:background="@color/white"
             android:gravity="center|start"
             android:hint="Pilih Token"
+
             android:padding="10dp"
             android:textColor="#808080"
             android:textColorHint="#808080"
             android:textSize="14.5sp"
             app:spinner_arrow_gravity="end"
             app:spinner_arrow_padding="8dp"
+            app:spinner_arrow_tint="@color/secondary"
             app:spinner_divider_color="@color/black"
             app:spinner_divider_show="true"
             app:spinner_divider_size="0.4dp"
-            app:spinner_arrow_tint="@color/secondary"
             app:spinner_popup_animation="dropdown"
             app:spinner_popup_background="@color/secondary"
             app:spinner_popup_elevation="14dp" />
@@ -85,7 +86,7 @@
     </com.google.android.flexbox.FlexboxLayout>
 
     <FrameLayout
-        android:id="@+id/pln_info_pelanggan"
+        android:id="@+id/info_pelanggan"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_flexGrow="1"/>

@@ -33,8 +33,8 @@ class AllServiceAdapter(private val produk: List<Produk>): RecyclerView.Adapter<
                         "Pulsa", "Paket Data" -> {it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPulsaDataContainerFragment(tipe))}
                         "Game Online", "Digital Wallet", "Voucher HP Prabayar" -> {it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToGamePrabaDigiFragment(tipe))}
                         "PLN", "TOKEN" -> {it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPLNGroupFragment(tipe))}
-                        "PDAM" -> it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPLNTokenFragment(tipe))
-                        else -> it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToUniversalFragment(tipe))
+                        else -> it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPLNTokenFragment(tipe))
+
 
                     }
 

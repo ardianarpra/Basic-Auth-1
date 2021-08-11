@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sst.ngisiyuk.adapters.AllServiceAdapter
@@ -31,17 +32,20 @@ class HomeFragment : Fragment() {
             initServiceRV(it)
         })
 
+
         return binding.root
     }
 
     private fun initServiceRV(services: ArrayList<Produk>) {
         val adapter = AllServiceAdapter(services)
         binding.serviceRv.apply {
-            layoutManager = GridLayoutManager(requireContext(),2, GridLayoutManager.HORIZONTAL, false)
+            layoutManager = GridLayoutManager(requireContext(),4)
             setAdapter(adapter)
             itemAnimator = SlideInDownAnimator()
         }
     }
+
+
 
 
 }

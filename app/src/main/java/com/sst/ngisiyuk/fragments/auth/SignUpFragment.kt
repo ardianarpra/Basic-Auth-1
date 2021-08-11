@@ -47,7 +47,7 @@ class SignUpFragment : Fragment() {
         nomorUser = binding.nomorSignUpUser
         kotaUser = binding.kotaUser
         pin = binding.signupPin
-
+        viewModel.nullifying()
 
         binding.signupPin.apply {
             setOnFocusChangeListener { v, hasFocus ->

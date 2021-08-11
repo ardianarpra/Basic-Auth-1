@@ -119,6 +119,7 @@ class AuthViewModel  @Inject constructor(
                         // The verification code entered was invalid
                     }
                     // Update UI
+                    isSuccessSignIn.value = false
                     println("Login Failed")
                 }
             }

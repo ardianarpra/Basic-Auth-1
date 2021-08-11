@@ -4,6 +4,7 @@ import android.text.Editable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.gson.Gson
 import com.sst.ngisiyuk.models.ngisiyuk.*
 import com.sst.ngisiyuk.repositories.LayananRepository
 import com.sst.ngisiyuk.services.NgisiyukServices
@@ -104,17 +105,19 @@ class LayananViewModel @Inject constructor(
         viewModelScope.launch {
             val response = layananRepo.getListProduk(tipe, provider)
             if(response.data?.body() == null){
-               TODO("Mengatur get list produk yang bernilai null")
+
             } else subProduct.value = response.data.body()
+
+            println("tipe:$tipe, provider:$provider, data: ${response.data?.body()}")
         }
+
     }
 
     fun getIsiLayanan(tipe: String){
         viewModelScope.launch {
             val response = api.isiLayanan(tipe)
-            println(response.body())
             isiLayanan.value = response.body()
-
+            println(Gson().toJson(response.body()))
         }
     }
 

@@ -2,7 +2,9 @@ package com.sst.ngisiyuk.di
 
 import android.app.Application
 import android.content.SharedPreferences
+import android.view.LayoutInflater
 import com.google.gson.GsonBuilder
+import com.sst.ngisiyuk.databinding.InputPinLayoutBinding
 import com.sst.ngisiyuk.repositories.ApiServicesRepo
 import com.sst.ngisiyuk.repositories.LayananRepository
 import com.sst.ngisiyuk.services.ApiServices
@@ -21,7 +23,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
-    const val baseURL = "https://ngisiyuk.dagoo.id/api/"
+    const val baseURL = "https://admin.ngisiyuk.com/api/"
 
     @Singleton
     @Provides
@@ -68,5 +70,6 @@ object AppModule {
     @Singleton
     @Provides
     fun provideLayananProvider(ngisiyukServices: NgisiyukServices) = LayananRepository(ngisiyukServices)
+
 
 }

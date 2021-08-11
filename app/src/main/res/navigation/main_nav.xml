@@ -35,9 +35,13 @@
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/main_nav"
             android:id="@+id/action_splashFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
         <action
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/main_nav"
             android:id="@+id/action_splashFragment_to_authFragment"
             app:destination="@id/authFragment" />
     </fragment>
@@ -130,7 +134,7 @@
     </fragment>
     <fragment
         android:id="@+id/UniversalFragment"
-        android:name="com.sst.ngisiyuk.fragments.UniversalFragment"
+        android:name="com.sst.ngisiyuk.fragments.PLNPascaFragment"
         android:label="fragment_p_l_n_pasca"
         tools:layout="@layout/fragment_p_l_n_pasca" >
         <argument
@@ -139,8 +143,8 @@
     </fragment>
     <fragment
         android:id="@+id/PLNTokenFragment"
-        tools:layout="@layout/fragment_p_l_n_token"
-        android:name="com.sst.ngisiyuk.fragments.PLNTokenFragment"
+        tools:layout="@layout/fragment_universal"
+        android:name="com.sst.ngisiyuk.fragments.UniversalFragment"
         android:label="PLNTokenFragment" >
         <argument android:name="tipe"
             app:argType="string"
