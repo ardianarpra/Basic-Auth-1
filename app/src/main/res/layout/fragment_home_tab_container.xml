@@ -22,11 +22,11 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/main_nav" />
-    <me.ibrahimsn.lib.SmoothBottomBar
-        android:id="@+id/bottomBar"
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:backgroundColor="@color/secondary"
         app:menu="@menu/bottom_nav"/>
 
 
