@@ -27,17 +27,22 @@ class GamePrabaDigiFragment : Fragment() {
         bundle.putString("tipe", args.tipe)
         subProdukFragment.arguments = bundle
         layananVM.nullifySubProduk()
+
         layananVM.subProduct.observe(viewLifecycleOwner,{
             it?.data?.let {
                 binding.gpdViewPager.currentItem = 1
             }
         })
-
-
         val adapter = GaPraDiAdapter(requireParentFragment(), subProdukFragment)
         initViewPager(adapter)
         layananVM.getIsiLayanan(args.tipe)
 
+        handleBackPressed()
+
+        return binding.root
+    }
+
+    private fun handleBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback {
             if (binding.gpdViewPager.currentItem == 1){
                 binding.gpdViewPager.currentItem = 0
@@ -46,10 +51,7 @@ class GamePrabaDigiFragment : Fragment() {
                 requireActivity().onBackPressed()
             }
         }
-
-        return binding.root
     }
-
 
 
     private fun initViewPager(adapter: GaPraDiAdapter) {

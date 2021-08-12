@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_homeFragment_to_PLNTokenFragment"
             app:destination="@id/PLNTokenFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_authFragment"
+            app:destination="@id/authFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -44,6 +47,9 @@
             app:popUpTo="@id/main_nav"
             android:id="@+id/action_splashFragment_to_authFragment"
             app:destination="@id/authFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeTabContainerFragment"
+            app:destination="@id/homeTabContainerFragment" />
     </fragment>
     <fragment
         android:id="@+id/authFragment"
@@ -150,4 +156,9 @@
             app:argType="string"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/homeTabContainerFragment"
+        android:name="com.sst.ngisiyuk.fragments.HomeTabContainerFragment"
+        android:label="fragment_home_tab_container"
+        tools:layout="@layout/fragment_home_tab_container" />
 </navigation>

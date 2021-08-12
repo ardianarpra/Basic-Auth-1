@@ -40,7 +40,7 @@ class UniversalFragment : Fragment() {
         val pinBinding = InputPinLayoutBinding.inflate(LayoutInflater.from(requireContext()), container, false)
         pinBaloon = PopUpBaloon(requireContext(), pinBinding.root)
         val tipe = arguments?.getString("tipe", "")
-        println("args: $tipe")
+        println(userId)
 
         pinBinding.pinInput.doAfterTextChanged {
             println(it)

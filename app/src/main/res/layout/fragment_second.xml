@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:flexDirection="column"
+    tools:context=".fragments.slider.FirstFragment">
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_flexBasisPercent="55%"
+        app:flexDirection="column"
+        app:justifyContent="flex_end"
+        app:alignItems="center"
+        >
+        <ImageView
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_flexBasisPercent="70%"
+            android:src="@drawable/im_buy"/>
+    </com.google.android.flexbox.FlexboxLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Beli Paket Dan Pulsa"
+        android:textColor="#1A1A1A"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+
+        android:text="Kamu Pasti Lelah Isi Pulsa Dan Paket Harus Cape cape keluar rumah, dan keadaan pandemi juga, Disini kita menyediakan pulsa all operator dan paket internet yang Gokil !! Cek sendiri kalo ga percaya"
+        />
+
+
+</com.google.android.flexbox.FlexboxLayout>

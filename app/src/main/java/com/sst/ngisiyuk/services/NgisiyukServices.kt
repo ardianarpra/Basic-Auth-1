@@ -119,14 +119,20 @@ interface NgisiyukServices {
     @POST("history_transaksi")
     suspend fun getHistoryTransaksi(
         @Field("id") id:String
-    ): Response<HistoryTransaksiModel>
+    ): Response<HistoryModel>
 
     @FormUrlEncoded
-    @POST
+    @POST("verifyTransPembelian")
+    suspend fun verivyTransPembelian(
+        @Field("invoice") kode:String
+    ): Response<VerifyTransPembelianResponseModel>
+
+    @FormUrlEncoded
+    @POST("")
     suspend fun getDetailTransaksi(
         @Field("id") id:String,
         @Field("tipe") tipe:String
-    ) :Response<DetailHistoryModel>
+    ) :Response<DetailTransaksiModel>
 
 
 

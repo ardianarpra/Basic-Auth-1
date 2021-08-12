@@ -1,6 +1,5 @@
 package com.sst.ngisiyuk.viewmodels
 
-import android.text.Editable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -23,6 +22,9 @@ class LayananViewModel @Inject constructor(
     val subProduct = MutableLiveData<ListProdukModel?>()
     val isiLayanan = MutableLiveData<IsiLayananModel?>()
     val createInquiryResponse = MutableLiveData<CreateInquiryModel>()
+    val transPembelianResponse = MutableLiveData<TransPembelianModel>()
+    val verifyTransPembelianResponse = MutableLiveData<VerifyTransPembelianResponseModel>()
+
 
     private val layanan = arrayListOf<Produk>()
 
@@ -151,6 +153,22 @@ class LayananViewModel @Inject constructor(
             val response = api.createInquiry(idPelanggan, kode, tujuan)
 
             if (response.isSuccessful) createInquiryResponse.value = response.body()
+        }
+    }
+
+    fun createTransPPOB(idPelanggan: String, idKeuntungan: String, tujuan: String) {
+        viewModelScope.launch {
+            val response = api.createTransPembelian(idPelanggan, idKeuntungan , tujuan )
+
+            if (response.isSuccessful) transPembelianResponse.value = response.body()
+        }
+    }
+
+    fun verifyTransPembelian(kode:String){
+        viewModelScope.launch {
+            val response = api.verivyTransPembelian(kode)
+
+            if (response.isSuccessful) verifyTransPembelianResponse.value = response.body()
         }
     }
 

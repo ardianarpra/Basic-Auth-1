@@ -3,6 +3,7 @@ package com.sst.ngisiyuk.di
 import android.app.Application
 import android.content.SharedPreferences
 import android.view.LayoutInflater
+import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.GsonBuilder
 import com.sst.ngisiyuk.databinding.InputPinLayoutBinding
 import com.sst.ngisiyuk.repositories.ApiServicesRepo
@@ -70,6 +71,10 @@ object AppModule {
     @Singleton
     @Provides
     fun provideLayananProvider(ngisiyukServices: NgisiyukServices) = LayananRepository(ngisiyukServices)
+
+    @Singleton
+    @Provides
+    fun provideFirebaseAuth():FirebaseAuth = FirebaseAuth.getInstance()
 
 
 }

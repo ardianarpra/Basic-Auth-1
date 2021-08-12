@@ -1,5 +1,7 @@
 package com.sst.ngisiyuk.viewmodels
 
+import android.annotation.SuppressLint
+import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,18 +14,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UserDataViewModel @Inject constructor(
-    private val api : NgisiyukServices
+    private val api : NgisiyukServices,
+    private val userPrefs: SharedPreferences,
+    private val auth: FirebaseAuth
 ): ViewModel() {
-    private val auth = FirebaseAuth.getInstance()
-    val dataUser = MutableLiveData<GetProfil>()
 
-    init {
-        if (auth.currentUser != null){
-            getUserProfile()
-        }
-    }
+    val dataUser = MutableLiveData<GetProfil?>()
 
-    private fun getUserProfile() {
+
+    @SuppressLint("ApplySharedPref")
+    fun getUserProfile() {
         viewModelScope.launch {
             auth.currentUser?.let{
                 val response = api.getProfil(it.phoneNumber!!.drop(3))
@@ -31,9 +31,14 @@ class UserDataViewModel @Inject constructor(
 
                 if (response.isSuccessful){
                     dataUser.value = response.body()
+                    userPrefs.edit().putString("id", response.body()?.data?.id).commit()
                 }
             }
         }
+    }
+
+    fun nullifyDataUser(){
+        dataUser.value = null
     }
 
 }
