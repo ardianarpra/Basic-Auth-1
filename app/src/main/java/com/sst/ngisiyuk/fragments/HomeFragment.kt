@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.sst.ngisiyuk.R
 import com.sst.ngisiyuk.adapters.AllServiceAdapter
 import com.sst.ngisiyuk.databinding.FragmentHomeBinding
 import com.sst.ngisiyuk.models.ngisiyuk.GetProfil
@@ -19,14 +20,17 @@ import com.sst.ngisiyuk.viewmodels.LayananViewModel
 import com.sst.ngisiyuk.viewmodels.UserDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.recyclerview.animators.SlideInDownAnimator
+import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     lateinit var binding : FragmentHomeBinding
+
     private val layananViewModel : LayananViewModel by activityViewModels()
     private val userVM :UserDataViewModel by activityViewModels()
+
     @Inject lateinit var userPrefs:SharedPreferences
     @Inject lateinit var myId :String
     @Inject lateinit var auth:FirebaseAuth
@@ -35,7 +39,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+        println("userPrefs: ${userPrefs.getBoolean("isOpened", false)}")
+        println("phoneNumber : ${auth.currentUser?.phoneNumber}")
 
         layananViewModel.allServices.observe(viewLifecycleOwner,{
             initServiceRV(it)
@@ -46,8 +51,18 @@ class HomeFragment : Fragment() {
         })
 
 
+        initCarousel()
 
         return binding.root
+    }
+
+    private fun initCarousel() {
+        binding.carousel.apply {
+            for (i in 0..5){
+                addData(CarouselItem(R.drawable.im_buy))
+            }
+            registerLifecycle(viewLifecycleOwner)
+        }
     }
 
     private fun handleUserPrefs(profil: GetProfil?) {
@@ -78,8 +93,10 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         if(auth.currentUser != null && userVM.dataUser.value == null){
+            println("getProfile")
             userVM.getUserProfile()
         }
+
     }
 
 

@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "619734219667-ok98ehdcul2s7kf62v3rdb0ashon778u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sst.ngisiyuk",
+            "certificate_hash": "7c47ae1b3928e921d4e83e00bff1f4f0dbdf7ded"
+          }
+        },
+        {
           "client_id": "619734219667-6f83r7j7l1n4cnudn9m64v7i8tccbs46.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,17 +7,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/service_rv"
+    <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        app:flexDirection="column"
+        android:layout_height="match_parent">
+
+        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+            android:id="@+id/carousel"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:showBottomShadow="false"
+            app:showTopShadow="false"
+            app:carouselType="SHOWCASE"
+            app:showIndicator="true"
+            app:autoPlay="true"
+            app:imageScaleType="centerCrop"
+            app:scaleOnScroll="true"
+            app:carouselGravity="CENTER"
+            app:showNavigationButtons="false"/>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="logout"
-        android:id="@+id/button_logout"
-        />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/service_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
-</com.google.android.flexbox.FlexboxLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="logout"
+            android:id="@+id/button_logout"
+            />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+
+</androidx.core.widget.NestedScrollView>

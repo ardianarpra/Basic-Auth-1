@@ -183,4 +183,16 @@
         android:name="com.sst.ngisiyuk.AkunFragment"
         android:label="fragment_akun"
         tools:layout="@layout/fragment_akun" />
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.sst.ngisiyuk.fragments.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_splashFragment"
+            app:destination="@id/splashFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_homeTabContainerFragment"
+            app:destination="@id/homeTabContainerFragment" />
+    </fragment>
 </navigation>

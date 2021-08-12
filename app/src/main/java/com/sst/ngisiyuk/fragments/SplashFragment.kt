@@ -44,7 +44,7 @@ class SplashFragment : Fragment() {
         binding.nextButton.setOnClickListener {
             if (viewPager.currentItem == 3) {
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeTabContainerFragment())
-                userPrefs.edit().putString("isOpened", "true").apply()
+                userPrefs.edit().putBoolean("isOpened", true).apply()
             }
             else viewPager.currentItem = viewPager.currentItem + 1
         }
