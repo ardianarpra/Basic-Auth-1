@@ -24,9 +24,13 @@ class HomeTabContainerFragment : Fragment() {
     ): View? {
         binding = FragmentHomeTabContainerBinding.inflate(inflater, container, false)
         val navHost = childFragmentManager.findFragmentById(binding.fragmentContainerView2.id) as NavHostFragment
+        val inflater = navHost.navController.navInflater
+        val graph = inflater.inflate(R.navigation.main_nav)
+
+        graph.startDestination = R.id.homeFragment
         navController = navHost.navController
         homeNavigation = binding.bottomBar
-
+        navHost.navController.graph = graph
 
 
 

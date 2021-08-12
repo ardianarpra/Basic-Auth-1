@@ -49,7 +49,7 @@ class SplashFragment : Fragment() {
             else viewPager.currentItem = viewPager.currentItem + 1
         }
 
-
+        TODO("menghapus splash saat sudah pernah dibuka")
 
         return binding.root
     }
