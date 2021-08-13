@@ -33,7 +33,9 @@ class HomeTabContainerFragment : Fragment() {
         navHost.navController.graph = graph
 
         NavigationUI.setupWithNavController(homeNavigation, navController)
-
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            println(destination.label)
+        }
 
         return binding.root
     }

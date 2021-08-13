@@ -11,7 +11,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
 import com.skydoves.powerspinner.SpinnerAnimation
-import com.sst.ngisiyuk.R
 import com.sst.ngisiyuk.databinding.FragmentUniversalBinding
 import com.sst.ngisiyuk.databinding.InputPinLayoutBinding
 import com.sst.ngisiyuk.models.ngisiyuk.DataXX

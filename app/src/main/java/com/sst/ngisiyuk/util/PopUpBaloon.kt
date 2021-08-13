@@ -2,7 +2,7 @@ package com.sst.ngisiyuk.util
 
 import android.content.Context
 import android.view.View
-import androidx.core.content.ContextCompat
+import android.view.ViewParent
 import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.BalloonSizeSpec
 import com.skydoves.balloon.createBalloon
@@ -20,10 +20,11 @@ class PopUpBaloon(context: Context, view:View) {
         setBalloonAnimation(BalloonAnimation.FADE)
         setLifecycleOwner(lifecycleOwner)
         setLayout(view)
+        arrowSize = 0
     }
 
-    fun showBaloon(view: View){
-        baloon.show(view)
+    fun showBaloon(view: ViewParent){
+        baloon.show(view as View)
     }
 
 }

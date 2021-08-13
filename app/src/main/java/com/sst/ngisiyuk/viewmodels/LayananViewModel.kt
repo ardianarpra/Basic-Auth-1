@@ -22,7 +22,7 @@ class LayananViewModel @Inject constructor(
     val subProduct = MutableLiveData<ListProdukModel?>()
     val isiLayanan = MutableLiveData<IsiLayananModel?>()
     val createInquiryResponse = MutableLiveData<CreateInquiryModel>()
-    val transPembelianResponse = MutableLiveData<TransPembelianModel>()
+    val transPembelianResponse = MutableLiveData<TransPembelianModel?>()
     val verifyTransPembelianResponse = MutableLiveData<VerifyTransPembelianResponseModel>()
 
 
@@ -161,15 +161,13 @@ class LayananViewModel @Inject constructor(
             val response = api.createTransPembelian(idPelanggan, idKeuntungan , tujuan )
 
             if (response.isSuccessful) transPembelianResponse.value = response.body()
+
+            println("Tes PPOB : ${response.body()}")
         }
     }
 
-    fun verifyTransPembelian(kode:String){
-        viewModelScope.launch {
-            val response = api.verivyTransPembelian(kode)
-
-            if (response.isSuccessful) verifyTransPembelianResponse.value = response.body()
-        }
+    fun nullifyStatusPembelian() {
+        transPembelianResponse.value = null
     }
 
 

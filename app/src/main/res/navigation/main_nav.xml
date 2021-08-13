@@ -31,6 +31,12 @@
         <action
             android:id="@+id/action_homeFragment_to_authFragment"
             app:destination="@id/authFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_transferFragment"
+            app:destination="@id/transferFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_topUpFragment"
+            app:destination="@id/topUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"

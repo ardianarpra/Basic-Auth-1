@@ -1,10 +1,14 @@
 package com.sst.ngisiyuk.di
 
 import android.app.Application
+import android.content.Context
 import android.content.SharedPreferences
 import android.view.LayoutInflater
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.GsonBuilder
+import com.sst.ngisiyuk.R
 import com.sst.ngisiyuk.databinding.InputPinLayoutBinding
 import com.sst.ngisiyuk.repositories.ApiServicesRepo
 import com.sst.ngisiyuk.repositories.LayananRepository
@@ -13,11 +17,13 @@ import com.sst.ngisiyuk.services.NgisiyukServices
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 
@@ -54,7 +60,14 @@ object AppModule {
 
     @Singleton
     @Provides
+
     fun provideIdUser(userPref : SharedPreferences) :String = userPref.getString("id", "")!!
+
+
+//    @Singleton
+//    @Provides
+//    @Named("pin")
+//    fun providePin(userPref : SharedPreferences) :String = userPref.getString("pin", "")!!
 
     @Singleton
     @Provides

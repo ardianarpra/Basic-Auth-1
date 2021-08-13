@@ -2,17 +2,14 @@ package com.sst.ngisiyuk.fragments
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.addCallback
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
-import com.skydoves.transformationlayout.addTransformation
-import com.skydoves.transformationlayout.onTransformationStartContainer
 import com.sst.ngisiyuk.R
 import com.sst.ngisiyuk.adapters.AllServiceAdapter
 import com.sst.ngisiyuk.databinding.FragmentHomeBinding
@@ -45,7 +42,7 @@ class HomeFragment : Fragment() {
         println("userPrefs: ${userPrefs.getBoolean("isOpened", false)}")
         println("phoneNumber : ${auth.currentUser?.phoneNumber}")
 
-        handleTransformation()
+
 
         layananViewModel.allServices.observe(viewLifecycleOwner,{
             initServiceRV(it)
@@ -58,13 +55,24 @@ class HomeFragment : Fragment() {
 
 
         initCarousel()
+        handleTopUp()
+        handleTransfer()
 
         return binding.root
     }
 
-    private fun handleTransformation() {
-
+    private fun handleTransfer() {
+        binding.includeInfo.transfer.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransferFragment())
+        }
     }
+
+    private fun handleTopUp() {
+        binding.includeInfo.topUpUser.setOnClickListener {
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTopUpFragment())
+        }
+    }
+
 
     private fun initCarousel() {
         binding.carousel.apply {
@@ -76,17 +84,13 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        onTransformationStartContainer()
-    }
-
     private fun handleUserPrefs(profil: GetProfil?) {
         if(profil == null){
             userPrefs.edit().clear().apply()
 
         } else {
             userPrefs.edit().putString("id", profil.data.id).apply()
+            userPrefs.edit().putString("pin", profil.data.id).apply()
 
         }
     }

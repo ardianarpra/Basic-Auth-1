@@ -13,13 +13,13 @@ import com.sst.ngisiyuk.models.ngisiyuk.DataXXX
 import com.sst.ngisiyuk.viewmodels.LayananViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
+import javax.inject.Named
 
 @AndroidEntryPoint
 class SubOfSubProdukFragment : Fragment() {
     lateinit var binding: FragmentSubOfSubProdukBinding
     private val layananViewModel: LayananViewModel by activityViewModels()
-    @Inject
-    lateinit var id:String
+    @Inject lateinit var id:String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,13 +31,15 @@ class SubOfSubProdukFragment : Fragment() {
             it?.data?.let {
                 initRV(it)
             }
+
+
         })
 
         return binding.root
     }
 
     private fun initRV(it: List<DataXXX>) {
-        val adapter = SubOfSubProdukFragmentAdapter(it, layananViewModel, id)
+        val adapter = SubOfSubProdukFragmentAdapter(it, layananViewModel, id, binding.inputTujuan)
         binding.recyclerView.apply {
             setAdapter(adapter)
             layoutManager = GridLayoutManager(requireContext(), 4)
