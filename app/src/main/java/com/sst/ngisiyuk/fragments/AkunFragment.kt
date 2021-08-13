@@ -17,7 +17,9 @@ import com.sst.ngisiyuk.viewmodels.UserDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import android.os.Build
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.skydoves.balloon.createBalloon
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -25,6 +27,8 @@ class AkunFragment : Fragment(), ThousandSeparator {
     lateinit var binding: FragmentAkunBinding
 
     private val userVM by activityViewModels<UserDataViewModel>()
+
+    @Inject lateinit var auth :FirebaseAuth
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,14 +42,19 @@ class AkunFragment : Fragment(), ThousandSeparator {
         handleCopyKode()
 
         userVM.dataUser.observe(viewLifecycleOwner,{ profil ->
-            profil?.data?.let {
-                with(it){
-                    binding.akunNama.text = nama_pelanggan
-                    binding.akunNomorHp.text = no_hp
-                    binding.kodeReferral.text = referral
-                    binding.included.nominalSaldoUser.text = "Rp. ${thousandSeparator(saldo.toInt(), ".")}"
+
+            binding.akunNama.text = profil?.data?.nama_pelanggan ?: ""
+            binding.akunNomorHp.text = profil?.data?.no_hp ?: ""
+            binding.kodeReferral.text = profil?.data?.referral ?: ""
+            binding.included.nominalSaldoUser.text = "Rp. ${thousandSeparator((profil?.data?.saldo ?: 0), "")}"
+            binding.logoutButton.apply {
+                setOnClickListener {
+                    if (profil != null) auth.signOut() else findNavController().navigate(AkunFragmentDirections.actionAkunFragmentToAuthFragment())
                 }
+
+                text = if (profil == null) "Log In" else "Log Out"
             }
+
 
         })
 

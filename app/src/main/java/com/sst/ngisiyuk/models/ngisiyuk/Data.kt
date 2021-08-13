@@ -8,7 +8,7 @@ data class Data(
     val jenis_kelamin: String,
     val nama_pelanggan: String,
     val no_hp: String,
-    val pin: Boolean,
+    val pin: String,
     val referral: String,
-    val saldo: String
+    val saldo: Int
 )

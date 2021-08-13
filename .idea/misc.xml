@@ -6,42 +6,30 @@
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/drawable-xxxhdpi/button_login.xml" value="0.19895833333333332" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/drawable/background_power_spinner.xml" value="0.35625" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/drawable/bottom_border.xml" value="0.35625" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/drawable/bottom_corner.xml" value="0.35625" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/drawable/default_dot.xml" value="0.35625" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/drawable/ic_dot.xml" value="0.35625" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/drawable/ic_password.xml" value="0.35625" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/drawable/im_delete.xml" value="0.35625" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/drawable/selected_dot.xml" value="0.35625" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/drawable/tab_selector.xml" value="0.35625" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fail_anim.xml" value="0.3359375" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fail_animation_layout.xml" value="0.3359375" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_akun.xml" value="0.18" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_auth.xml" value="0.33" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_first.xml" value="0.3359375" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_fourth.xml" value="0.3359375" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_auth.xml" value="0.17864583333333334" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_home.xml" value="0.33" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_home_tab_container.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_inquiry.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_otp.xml" value="0.5" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_p_l_n_group.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_p_l_n_token.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_pulsa.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_pulsa_data.xml" value="0.31875" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_second.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_show_sub_services.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_sign_in.xml" value="0.21" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_sign_up.xml" value="0.3359375" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_splash.xml" value="0.5" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_sub_of_sub_produk.xml" value="0.3359375" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_sub_produk.xml" value="0.3359375" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_third.xml" value="0.3359375" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_splash.xml" value="0.17864583333333334" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/fragment_universal.xml" value="0.23547400611620795" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/include_info_user.xml" value="0.5254865616311399" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/input_pin_layout.xml" value="0.33" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/keyboard.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/list_produk.xml" value="0.3359375" />
-        <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/menu/bottom_nav.xml" value="0.329417773237998" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/activity_main.xml" value="0.165625" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_akun.xml" value="0.5203125" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_home.xml" value="0.346875" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/popup_login.xml" value="0.5203125" />
       </map>
     </option>
   </component>
@@ -54,7 +42,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.18" />
+        <option name="scale" value="0.1" />
       </ProjectState>
     </option>
   </component>

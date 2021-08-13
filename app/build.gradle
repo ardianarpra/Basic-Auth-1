@@ -29,6 +29,12 @@ android {
             keyAlias 'ngisiyuk'
             keyPassword 'ardinata'
         }
+        home {
+            storeFile file('C:\\Users\\Administrator\\AndroidStudioProjects\\Ngisiyuk\\ngisiyuk.jks')
+            storePassword 'ardinata'
+            keyAlias 'ngisiyuk'
+            keyPassword 'ardinata'
+        }
     }
     compileSdk 30
     buildToolsVersion "30.0.3"
@@ -47,10 +53,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.signed
+            signingConfig signingConfigs.home
         }
         debug {
-            signingConfig signingConfigs.signed
+            signingConfig signingConfigs.home
         }
     }
     compileOptions {

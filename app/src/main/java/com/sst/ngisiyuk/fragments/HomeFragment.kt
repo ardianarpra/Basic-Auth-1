@@ -1,20 +1,28 @@
 package com.sst.ngisiyuk.fragments
 
+import android.annotation.SuppressLint
 import android.content.SharedPreferences
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.skydoves.balloon.BalloonSizeSpec
+import com.skydoves.balloon.balloon
+import com.skydoves.balloon.createBalloon
 import com.sst.ngisiyuk.R
 import com.sst.ngisiyuk.adapters.AllServiceAdapter
 import com.sst.ngisiyuk.databinding.FragmentHomeBinding
+import com.sst.ngisiyuk.databinding.PopupLoginBinding
 import com.sst.ngisiyuk.models.ngisiyuk.GetProfil
 import com.sst.ngisiyuk.models.ngisiyuk.Produk
+import com.sst.ngisiyuk.util.ThousandSeparator
 import com.sst.ngisiyuk.viewmodels.LayananViewModel
 import com.sst.ngisiyuk.viewmodels.UserDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,7 +32,7 @@ import org.imaginativeworld.whynotimagecarousel.model.CarouselType
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), ThousandSeparator {
 
     lateinit var binding : FragmentHomeBinding
 
@@ -34,6 +42,7 @@ class HomeFragment : Fragment() {
     @Inject lateinit var userPrefs:SharedPreferences
     @Inject lateinit var myId :String
     @Inject lateinit var auth:FirebaseAuth
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,29 +58,41 @@ class HomeFragment : Fragment() {
         })
 
         userVM.dataUser.observe(viewLifecycleOwner,{profil ->
-            handleUserPrefs(profil)
+            handleButtonClick(profil)
+            binding.includeInfo.nominalSaldoUser.text = "Rp. ${thousandSeparator(profil?.data?.saldo ?: 0, ".")}"
+
         })
 
 
 
         initCarousel()
-        handleTopUp()
-        handleTransfer()
+
+
 
         return binding.root
     }
 
-    private fun handleTransfer() {
+    private fun handleButtonClick(profil: GetProfil?) {
+        val popupLoginBinding = PopupLoginBinding.inflate(LayoutInflater.from(requireContext())).apply {
+            popupButton.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAuthFragment())
+            }
+        }
+        val dialog = AlertDialog.Builder(requireContext()).apply {
+            setView(popupLoginBinding.root)
+            create()
+        }
         binding.includeInfo.transfer.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransferFragment())
+            if (profil == null) dialog.show() else findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransferFragment())
+
+        }
+        binding.includeInfo.topUpUser.setOnClickListener {
+            if (profil == null) dialog.show() else findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTopUpFragment())
+
         }
     }
 
-    private fun handleTopUp() {
-        binding.includeInfo.topUpUser.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTopUpFragment())
-        }
-    }
+
 
 
     private fun initCarousel() {
@@ -84,17 +105,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun handleUserPrefs(profil: GetProfil?) {
-        if(profil == null){
-            userPrefs.edit().clear().apply()
-
-        } else {
-            userPrefs.edit().putString("id", profil.data.id).apply()
-            userPrefs.edit().putString("pin", profil.data.id).apply()
-
-        }
-    }
-
 
     private fun initServiceRV(services: ArrayList<Produk>) {
         val adapter = AllServiceAdapter(services)
@@ -104,20 +114,6 @@ class HomeFragment : Fragment() {
             itemAnimator = SlideInDownAnimator()
         }
     }
-
-    override fun onResume() {
-        super.onResume()
-        if(auth.currentUser != null && userVM.dataUser.value == null){
-            println("getProfile")
-            userVM.getUserProfile()
-        }
-
-        if (userVM.dataUser.value == null){
-            userVM.getUserProfile()
-        }
-
-    }
-
 
 
 }

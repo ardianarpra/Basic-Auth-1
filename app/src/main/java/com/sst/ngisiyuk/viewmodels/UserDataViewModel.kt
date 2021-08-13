@@ -2,6 +2,7 @@ package com.sst.ngisiyuk.viewmodels
 
 import android.annotation.SuppressLint
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -21,34 +22,52 @@ class UserDataViewModel @Inject constructor(
 
     val dataUser = MutableLiveData<GetProfil?>()
 
+    init{
+        Log.d(TAG, "USerVM: Terinit")
+        
+        userPrefs.registerOnSharedPreferenceChangeListener { sharedPreferences, s ->
+            println(s)
+        }
 
-    @SuppressLint("ApplySharedPref")
-    fun getUserProfile() {
-        viewModelScope.launch {
-//            auth.currentUser?.let{
-//                val response = api.getProfil(it.phoneNumber!!.drop(3))
-//
-//                println(response.body())
-//
-//                if (response.isSuccessful){
-//                    dataUser.value = response.body()
-//                    userPrefs.edit().putString("id", response.body()?.data?.id).commit()
-//                }
-//            }
+        auth.addAuthStateListener {
+            if (it.currentUser == null){
+                userPrefs.edit().remove("id").apply()
+                userPrefs.edit().remove("pin").apply()
+                userPrefs.edit().remove("isUidCreated").apply()
+                dataUser.value = null
+            } else {
+                it.currentUser?.phoneNumber?.let {
+                    viewModelScope.launch {
+                        val response = api.getProfil(it.drop(3))
+                        val isUidCreated = userPrefs.getBoolean("isUidCreated", false)
 
-            val response = api.getProfil("85854512322")
+                        if (!isUidCreated){
+                            userPrefs.edit().putBoolean("isUidCreated", true).apply()
+                            auth.uid?.let { uid -> api.createIdDevice(it.drop(3), uid) }
+                        }
+                        if (response.isSuccessful) dataUser.value = response.body()
+                        userPrefs.edit().putString("id", response.body()?.data?.id).apply()
+                        userPrefs.edit().putString("pin", response.body()?.data?.pin).apply()
 
-            println(response.body())
+                        println(response.body())
 
-            if (response.isSuccessful){
-                dataUser.value = response.body()
-                userPrefs.edit().putString("id", response.body()?.data?.id).commit()
+
+                    }
+                }
             }
         }
+
+        fun eraseFCM(){
+            viewModelScope.launch {
+                api.destroyIdDevice(auth.currentUser?.phoneNumber!!.drop(3))
+            }
+        }
+
+
     }
 
-    fun nullifyDataUser(){
-        dataUser.value = null
+    companion object{
+        const val TAG = "UserDataVM"
     }
 
 }
