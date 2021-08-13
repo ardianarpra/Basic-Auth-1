@@ -6,41 +6,61 @@
     app:flexDirection="column"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
-
-    <com.google.android.flexbox.FlexboxLayout
+    <com.skydoves.transformationlayout.TransformationLayout
+        android:id="@+id/trans_layout"
         android:layout_width="match_parent"
-        app:flexDirection="column"
         android:layout_height="match_parent">
-
-        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-            android:id="@+id/carousel"
+        <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:showBottomShadow="false"
-            app:showTopShadow="false"
-            app:carouselType="SHOWCASE"
-            app:showIndicator="true"
-            app:autoPlay="true"
-            app:imageScaleType="centerCrop"
-            app:scaleOnScroll="true"
-            app:carouselGravity="CENTER"
-            app:showNavigationButtons="false"/>
+            app:flexDirection="column"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+                <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+                    android:id="@+id/carousel"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    app:showBottomShadow="false"
+                    android:background="@color/secondary"
+                    app:showTopShadow="false"
+                    app:carouselType="SHOWCASE"
+                    app:showIndicator="true"
+                    app:autoPlay="true"
+                    app:scaleOnScroll="true"
+                    app:carouselGravity="CENTER"
+                    app:showNavigationButtons="false"/>
+            </androidx.cardview.widget.CardView>
+
+            <include
+                android:layout_margin="20dp"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/include_info"
+                layout="@layout/include_info_user"
+                />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/service_rv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/service_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="logout"
-            android:id="@+id/button_logout"
-            />
 
-    </com.google.android.flexbox.FlexboxLayout>
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+
+
+    </com.skydoves.transformationlayout.TransformationLayout>
+
+
 
 
 

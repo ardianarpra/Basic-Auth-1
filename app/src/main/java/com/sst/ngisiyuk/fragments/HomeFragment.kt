@@ -11,6 +11,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
+import com.skydoves.transformationlayout.addTransformation
+import com.skydoves.transformationlayout.onTransformationStartContainer
 import com.sst.ngisiyuk.R
 import com.sst.ngisiyuk.adapters.AllServiceAdapter
 import com.sst.ngisiyuk.databinding.FragmentHomeBinding
@@ -21,6 +23,7 @@ import com.sst.ngisiyuk.viewmodels.UserDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.recyclerview.animators.SlideInDownAnimator
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
+import org.imaginativeworld.whynotimagecarousel.model.CarouselType
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -42,6 +45,8 @@ class HomeFragment : Fragment() {
         println("userPrefs: ${userPrefs.getBoolean("isOpened", false)}")
         println("phoneNumber : ${auth.currentUser?.phoneNumber}")
 
+        handleTransformation()
+
         layananViewModel.allServices.observe(viewLifecycleOwner,{
             initServiceRV(it)
         })
@@ -51,9 +56,14 @@ class HomeFragment : Fragment() {
         })
 
 
+
         initCarousel()
 
         return binding.root
+    }
+
+    private fun handleTransformation() {
+
     }
 
     private fun initCarousel() {
@@ -62,21 +72,22 @@ class HomeFragment : Fragment() {
                 addData(CarouselItem(R.drawable.im_buy))
             }
             registerLifecycle(viewLifecycleOwner)
+            carouselType = CarouselType.SHOWCASE
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        onTransformationStartContainer()
     }
 
     private fun handleUserPrefs(profil: GetProfil?) {
         if(profil == null){
             userPrefs.edit().clear().apply()
-            binding.buttonLogout.setOnClickListener {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAuthFragment())
-            }
+
         } else {
             userPrefs.edit().putString("id", profil.data.id).apply()
-            binding.buttonLogout.setOnClickListener {
-                auth.signOut()
-                userVM.nullifyDataUser()
-            }
+
         }
     }
 
@@ -94,6 +105,10 @@ class HomeFragment : Fragment() {
         super.onResume()
         if(auth.currentUser != null && userVM.dataUser.value == null){
             println("getProfile")
+            userVM.getUserProfile()
+        }
+
+        if (userVM.dataUser.value == null){
             userVM.getUserProfile()
         }
 

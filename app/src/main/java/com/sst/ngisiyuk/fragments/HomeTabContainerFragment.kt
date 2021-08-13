@@ -11,7 +11,6 @@ import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.sst.ngisiyuk.R
 import com.sst.ngisiyuk.databinding.FragmentHomeTabContainerBinding
-import me.ibrahimsn.lib.SmoothBottomBar
 
 
 class HomeTabContainerFragment : Fragment() {

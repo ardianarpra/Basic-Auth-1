@@ -10,5 +10,5 @@ data class Data(
     val no_hp: String,
     val pin: Boolean,
     val referral: String,
-    val saldo: Any
+    val saldo: String
 )

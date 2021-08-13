@@ -18,13 +18,13 @@ apply plugin: 'kotlin-kapt'
 android {
     signingConfigs {
         debug {
-            storeFile file('C:\\Users\\Administrator\\AndroidStudioProjects\\Ngisiyuk\\ngisiyuk.jks')
+            storeFile file('D:\\Angga\\Compose\\Ngisiyuk\\ngisiyuk.jks')
             storePassword 'ardinata'
             keyAlias 'ngisiyuk'
             keyPassword 'ardinata'
         }
         signed {
-            storeFile file('C:\\Users\\Administrator\\AndroidStudioProjects\\Ngisiyuk\\ngisiyuk.jks')
+            storeFile file('D:\\Angga\\Compose\\Ngisiyuk\\ngisiyuk.jks')
             storePassword 'ardinata'
             keyAlias 'ngisiyuk'
             keyPassword 'ardinata'
@@ -134,11 +134,9 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.6'
 
     implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.0.4'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    implementation 'com.github.ibrahimsn98:SmoothBottomBar:1.7.8'
-
-
-    implementation 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
+    implementation "com.github.skydoves:transformationlayout:1.1.0"
 
 
 }

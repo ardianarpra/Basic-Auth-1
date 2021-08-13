@@ -46,4 +46,6 @@ class SubProdukOfGaPraDigiFragment : Fragment() {
     }
 
 
+
+
 }

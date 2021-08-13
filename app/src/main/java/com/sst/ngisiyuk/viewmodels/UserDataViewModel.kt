@@ -25,14 +25,24 @@ class UserDataViewModel @Inject constructor(
     @SuppressLint("ApplySharedPref")
     fun getUserProfile() {
         viewModelScope.launch {
-            auth.currentUser?.let{
-                val response = api.getProfil(it.phoneNumber!!.drop(3))
-                println(response.body())
+//            auth.currentUser?.let{
+//                val response = api.getProfil(it.phoneNumber!!.drop(3))
+//
+//                println(response.body())
+//
+//                if (response.isSuccessful){
+//                    dataUser.value = response.body()
+//                    userPrefs.edit().putString("id", response.body()?.data?.id).commit()
+//                }
+//            }
 
-                if (response.isSuccessful){
-                    dataUser.value = response.body()
-                    userPrefs.edit().putString("id", response.body()?.data?.id).commit()
-                }
+            val response = api.getProfil("85854512322")
+
+            println(response.body())
+
+            if (response.isSuccessful){
+                dataUser.value = response.body()
+                userPrefs.edit().putString("id", response.body()?.data?.id).commit()
             }
         }
     }

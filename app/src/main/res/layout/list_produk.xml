@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.flexbox.FlexboxLayout android:id="@+id/list_produk_container"
     android:layout_width="80dp"
+    android:clickable="true"
+    android:background="?selectableItemBackground"
     android:layout_height="wrap_content"
     app:alignItems="center"
     app:flexDirection="column"
     app:justifyContent="space_between"
-
+    android:layout_marginBottom="10dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:focusable="true">
 
             <ImageView
+                android:scaleType="fitStart"
                 android:id="@+id/list_produk_gambar"
-                android:layout_width="50sp"
-                android:layout_height="50sp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/game"
-                app:layout_flexGrow="1"
-                android:layout_marginBottom="10sp"
+                android:layout_marginBottom="5dp"
                 />
 
             <TextView
                 android:id="@+id/nama_produk"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:gravity="center|top"
                 android:text="Nominal"
                 android:textSize="14sp"
                 />
