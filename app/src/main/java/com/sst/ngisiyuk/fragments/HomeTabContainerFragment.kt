@@ -35,6 +35,11 @@ class HomeTabContainerFragment : Fragment() {
         NavigationUI.setupWithNavController(homeNavigation, navController)
         navController.addOnDestinationChangedListener { controller, destination, arguments ->
             println(destination.label)
+
+            when(destination.id){
+                R.id.authFragment, R.id.signInFragment, R.id.signUpFragment, R.id.otpFragment -> homeNavigation.visibility = View.GONE
+                else -> homeNavigation.visibility = View.VISIBLE
+            }
         }
 
         return binding.root

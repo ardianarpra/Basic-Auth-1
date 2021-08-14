@@ -39,6 +39,7 @@ class OtpFragment : Fragment() {
         loading = LoadingBar(requireContext())
 
         println("SMS CODE : ${viewModel.credential.value?.otpCode}")
+        viewModel.falsifyIsSuccessSignIn()
 
 
         // sign up
@@ -84,14 +85,12 @@ class OtpFragment : Fragment() {
 
 
         viewModel.isSuccessSignIn.observe(viewLifecycleOwner,{
-
-
             if (it == true) {
                 findNavController().navigate(OtpFragmentDirections.actionOtpFragmentToHomeFragment())
                 loading.closeAlert()
             } else if (it == false){
                 loading.closeAlert()
-                binding.statusOtp.text = "Kode Verifikasi Salah"
+//                binding.statusOtp.text = "Kode Verifikasi Salah"
             }
         })
 

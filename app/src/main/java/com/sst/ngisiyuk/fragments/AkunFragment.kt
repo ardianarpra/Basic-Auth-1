@@ -15,10 +15,13 @@ import com.sst.ngisiyuk.databinding.FragmentAkunBinding
 import com.sst.ngisiyuk.util.ThousandSeparator
 import com.sst.ngisiyuk.viewmodels.UserDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import android.os.Build
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.skydoves.balloon.createBalloon
+import com.sst.ngisiyuk.Constant
+import com.sst.ngisiyuk.R
+import com.sst.ngisiyuk.adapters.MenuAkunAdapter
 import javax.inject.Inject
 
 
@@ -40,29 +43,51 @@ class AkunFragment : Fragment(), ThousandSeparator {
         handleTopUpButton()
         handleTransferButton()
         handleCopyKode()
+        handleIconLoginTransformation()
+        initMenuAkunRV()
 
         userVM.dataUser.observe(viewLifecycleOwner,{ profil ->
 
             binding.akunNama.text = profil?.data?.nama_pelanggan ?: ""
             binding.akunNomorHp.text = profil?.data?.no_hp ?: ""
             binding.kodeReferral.text = profil?.data?.referral ?: ""
-            binding.included.nominalSaldoUser.text = "Rp. ${thousandSeparator((profil?.data?.saldo ?: 0), "")}"
-            binding.logoutButton.apply {
-                setOnClickListener {
-                    if (profil != null) auth.signOut() else findNavController().navigate(AkunFragmentDirections.actionAkunFragmentToAuthFragment())
-                }
+            binding.included.nominalSaldoUser.text = "Rp. ${thousandSeparator((profil?.data?.saldo ?: 0), ".")}"
+//            binding.logoutButton.apply {
+//                setOnClickListener {
+//                    if (profil != null) auth.signOut() else findNavController().navigate(AkunFragmentDirections.actionAkunFragmentToAuthFragment())
+//                }
+//
+//                text = if (profil == null) "Log In" else "Log Out"
+//            }
 
-                text = if (profil == null) "Log In" else "Log Out"
-            }
 
 
         })
 
 
 
+
+
         return binding.root
     }
 
+    private fun handleIconLoginTransformation() {
+        auth.addAuthStateListener {
+            if (it.currentUser == null){
+                binding.editButton.setImageResource(R.drawable.ic_login)
+            } else binding.editButton.setImageResource(R.drawable.ic_edit)
+        }
+
+    }
+
+    private fun initMenuAkunRV() {
+        println("Akun RV")
+        val adapter = MenuAkunAdapter(Constant.menuAkun)
+        binding.akunRecyclerView.apply {
+            layoutManager = GridLayoutManager(requireContext(), 4)
+            setAdapter(adapter)
+        }
+    }
 
 
     private fun handleCopyKode() {
@@ -104,7 +129,13 @@ class AkunFragment : Fragment(), ThousandSeparator {
     }
 
     private fun handleEditButton() {
-//        TODO("Not yet implemented")
+        auth.addAuthStateListener {firebase ->
+            binding.editButton.setOnClickListener {
+                if (firebase.currentUser == null) findNavController().navigate(AkunFragmentDirections.actionAkunFragmentToAuthFragment())
+                else findNavController().navigate(AkunFragmentDirections.actionAkunFragmentToEditAkunFragment())
+            }
+
+        }
     }
 
     private fun handleBackButton() {

@@ -23,7 +23,7 @@ class InquiryFragment : Fragment() {
             args = it.getParcelable("inquiry")
         }
 
-        binding.tvTest.text = args.toString()
+
 
         return binding.root
     }

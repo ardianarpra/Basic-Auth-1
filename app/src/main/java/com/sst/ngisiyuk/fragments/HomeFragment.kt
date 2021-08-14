@@ -35,6 +35,9 @@ import javax.inject.Inject
 class HomeFragment : Fragment(), ThousandSeparator {
 
     lateinit var binding : FragmentHomeBinding
+    private lateinit var loginDialog : AlertDialog
+    lateinit var dialog:AlertDialog.Builder
+
 
     private val layananViewModel : LayananViewModel by activityViewModels()
     private val userVM :UserDataViewModel by activityViewModels()
@@ -42,6 +45,7 @@ class HomeFragment : Fragment(), ThousandSeparator {
     @Inject lateinit var userPrefs:SharedPreferences
     @Inject lateinit var myId :String
     @Inject lateinit var auth:FirebaseAuth
+
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +54,7 @@ class HomeFragment : Fragment(), ThousandSeparator {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         println("userPrefs: ${userPrefs.getBoolean("isOpened", false)}")
         println("phoneNumber : ${auth.currentUser?.phoneNumber}")
-
+        dialog = AlertDialog.Builder(requireContext())
 
 
         layananViewModel.allServices.observe(viewLifecycleOwner,{
@@ -73,26 +77,33 @@ class HomeFragment : Fragment(), ThousandSeparator {
     }
 
     private fun handleButtonClick(profil: GetProfil?) {
+
+
         val popupLoginBinding = PopupLoginBinding.inflate(LayoutInflater.from(requireContext())).apply {
             popupButton.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToAuthFragment())
+                closeLoginDialog()
             }
         }
-        val dialog = AlertDialog.Builder(requireContext()).apply {
+        loginDialog = dialog.apply {
             setView(popupLoginBinding.root)
-            create()
-        }
+        }.create()
+
+
+
         binding.includeInfo.transfer.setOnClickListener {
-            if (profil == null) dialog.show() else findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransferFragment())
+            if (profil == null) loginDialog.show() else findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransferFragment())
 
         }
         binding.includeInfo.topUpUser.setOnClickListener {
-            if (profil == null) dialog.show() else findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTopUpFragment())
+            if (profil == null) loginDialog.show() else findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTopUpFragment())
 
         }
     }
 
-
+    private fun closeLoginDialog() {
+        loginDialog.dismiss()
+    }
 
 
     private fun initCarousel() {

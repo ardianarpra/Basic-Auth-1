@@ -169,7 +169,12 @@ class AuthViewModel  @Inject constructor(
     fun resetIsVerificationFail(){
         isVerificationFail.value = false
     }
-
+    fun falsifyOtp(){
+        otpSent.value = false
+    }
+    fun falsifyIsSuccessSignIn(){
+        isSuccessSignIn.value = false
+    }
 
 
 

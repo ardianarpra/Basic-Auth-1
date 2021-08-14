@@ -16,28 +16,26 @@
         <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:flexDirection="column"
-            >
+            app:flexDirection="column">
 
             <com.google.android.flexbox.FlexboxLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                app:justifyContent="center"
-
                 android:layout_marginTop="20dp"
-                >
+                app:alignItems="center"
+
+                app:justifyContent="center">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/hoky_go_logo" />
+                    android:src="@drawable/im_logo_only" />
 
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/hoky_go_text" />
+                    android:src="@drawable/im_logo_text" />
 
             </com.google.android.flexbox.FlexboxLayout>
 
@@ -45,8 +43,7 @@
                 android:id="@+id/tab_layout_pln_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                />
+                android:layout_marginTop="10dp" />
         </com.google.android.flexbox.FlexboxLayout>
     </androidx.cardview.widget.CardView>
 

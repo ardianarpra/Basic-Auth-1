@@ -9,6 +9,7 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener
 import com.skydoves.powerspinner.SpinnerAnimation
 import com.sst.ngisiyuk.databinding.FragmentUniversalBinding
@@ -54,14 +55,9 @@ class UniversalFragment : Fragment() {
 
         layananVM.createInquiryResponse.observe(viewLifecycleOwner,{
             if (it.status){
-                val inquiryFragment = InquiryFragment()
-                val bundle = Bundle()
-                bundle.putParcelable("inquiry", it)
-                inquiryFragment.arguments = bundle
-
-                childFragmentManager.beginTransaction().replace(binding.infoPelanggan.id, inquiryFragment).commit()
+                findNavController().navigate(UniversalFragmentDirections.actionUniversalFragmentToDetailInquiryFragment())
             } else {
-                childFragmentManager.beginTransaction().replace(binding.infoPelanggan.id, Fragment()).commit()
+
             }
         })
 
@@ -103,12 +99,11 @@ class UniversalFragment : Fragment() {
 
         }
 
-        binding.isiLayananButton.setOnClickListener { view ->
+        binding.createInquiryButton.setOnClickListener { view ->
             if (chosenSpinner != null && binding.nomorTujuanPln.text?.isNotBlank()!!){
-                println("Not null nor empty")
                 layananVM.createInquiry(userId, chosenSpinner?.kode!!, binding.nomorTujuanPln.text.toString() )
             }
-            pinBaloon.showBaloon(binding.root)
+
 
         }
     }

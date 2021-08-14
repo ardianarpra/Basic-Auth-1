@@ -7,6 +7,26 @@
     app:flexDirection="column"
     tools:context=".fragments.PulsaDataContainerFragment">
 
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:alignItems="center"
+
+        app:justifyContent="center">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/im_logo_only" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:src="@drawable/im_logo_text" />
+
+    </com.google.android.flexbox.FlexboxLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_pulsa"

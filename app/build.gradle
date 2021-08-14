@@ -53,10 +53,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.home
+            signingConfig signingConfigs.signed
         }
         debug {
-            signingConfig signingConfigs.home
+            signingConfig signingConfigs.signed
         }
     }
     compileOptions {
@@ -141,6 +141,9 @@ dependencies {
 
     implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.0.4'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    implementation 'com.wajahatkarim3.easyflipviewpager:easyflipviewpager:2.0.0'
+
 
 
 

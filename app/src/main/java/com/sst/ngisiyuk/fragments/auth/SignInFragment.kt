@@ -30,6 +30,8 @@ class SignInFragment : Fragment() {
         binding = FragmentSignInBinding.inflate(layoutInflater, container, false)
         loading = LoadingBar(requireContext())
         authViewModel.nullifying()
+        authViewModel.falsifyOtp()
+
         binding.buttonLogin.setOnClickListener {
             if (binding.nomorLoginUser.text.toString().isNotBlank()) {
                 loading.showAlert(false)

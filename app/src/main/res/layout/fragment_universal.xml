@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.PLNPascaFragment"
+    tools:context=".fragments.UniversalFragment"
     app:alignItems="center"
     app:flexDirection="column"
     >
@@ -69,7 +69,7 @@
         >
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/isi_layanan_button"
+            android:id="@+id/create_inquiry_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/secondary"
@@ -85,11 +85,16 @@
             />
     </com.google.android.flexbox.FlexboxLayout>
 
-    <FrameLayout
-        android:id="@+id/info_pelanggan"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager_universal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_flexGrow="1"/>
+
+
+
+
+
 
 
 

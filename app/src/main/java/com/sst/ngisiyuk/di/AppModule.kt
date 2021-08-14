@@ -1,5 +1,6 @@
 package com.sst.ngisiyuk.di
 
+import android.app.AlertDialog
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
@@ -88,6 +89,8 @@ object AppModule {
     @Singleton
     @Provides
     fun provideFirebaseAuth():FirebaseAuth = FirebaseAuth.getInstance()
+
+
 
 
 }

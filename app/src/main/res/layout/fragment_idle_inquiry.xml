@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.NotifFragment">
+    tools:context=".fragments.inquiry.IdleInquiryFragment">
 
     <include
-        android:id="@+id/include"
         android:layout_height="match_parent"
         android:layout_width="match_parent"
-        layout="@layout/anim_coming_soom"/>
+        layout="@layout/anim_idle"
+        android:id="@+id/include"
+        />
 
 </FrameLayout>

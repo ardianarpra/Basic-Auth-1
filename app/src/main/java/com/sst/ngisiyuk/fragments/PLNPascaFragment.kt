@@ -30,9 +30,15 @@ class PLNPascaFragment : Fragment() {
             }
         })
 
+        initViewPager()
+
 
 
         return binding.root
+    }
+
+    private fun initViewPager() {
+
     }
 
 }
