@@ -37,7 +37,7 @@ class HomeTabContainerFragment : Fragment() {
             println(destination.label)
 
             when(destination.id){
-                R.id.authFragment, R.id.signInFragment, R.id.signUpFragment, R.id.otpFragment -> homeNavigation.visibility = View.GONE
+                R.id.authFragment, R.id.signInFragment, R.id.signUpFragment, R.id.otpFragment, R.id.detailInquiryFragment -> homeNavigation.visibility = View.GONE
                 else -> homeNavigation.visibility = View.VISIBLE
             }
         }

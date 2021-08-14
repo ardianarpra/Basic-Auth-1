@@ -25,7 +25,9 @@ class IdleInquiryFragment : Fragment() {
 
         layananVM.createInquiryResponse.observe(viewLifecycleOwner,{
             println("Ini di idle inquiry")
-            if (!it.status) binding.include.lotieIdle.setAnimation(R.raw.anim_not_found)
+            it?.let {
+                if (!it.status) binding.include.lotieIdle.setAnimation(R.raw.anim_not_found)
+            }
         })
 
         return binding.root

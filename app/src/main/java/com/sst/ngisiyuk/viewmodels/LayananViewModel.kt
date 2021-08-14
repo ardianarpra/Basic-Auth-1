@@ -21,9 +21,10 @@ class LayananViewModel @Inject constructor(
     val allServices = MutableLiveData<ArrayList<Produk>>()
     val subProduct = MutableLiveData<ListProdukModel?>()
     val isiLayanan = MutableLiveData<IsiLayananModel?>()
-    val createInquiryResponse = MutableLiveData<CreateInquiryModel>()
+    val createInquiryResponse = MutableLiveData<CreateInquiryModel?>()
     val transPembelianResponse = MutableLiveData<TransPembelianModel?>()
     val verifyTransPembelianResponse = MutableLiveData<VerifyTransPembelianResponseModel>()
+    val transPPOBResponse = MutableLiveData<CreateTransPPOBModel>()
 
 
     private val layanan = arrayListOf<Produk>()
@@ -149,6 +150,7 @@ class LayananViewModel @Inject constructor(
     }
 
     fun createInquiry(idPelanggan:String , kode:String, tujuan:String){
+        println("idPel : $idPelanggan, kode:$kode, tujuan: $tujuan")
         viewModelScope.launch {
             val response = api.createInquiry(idPelanggan, kode, tujuan)
 
@@ -156,7 +158,7 @@ class LayananViewModel @Inject constructor(
         }
     }
 
-    fun createTransPPOB(idPelanggan: String, idKeuntungan: String, tujuan: String) {
+    fun createTransPembelian(idPelanggan: String, idKeuntungan: String, tujuan: String) {
         viewModelScope.launch {
             val response = api.createTransPembelian(idPelanggan, idKeuntungan , tujuan )
 
@@ -166,8 +168,24 @@ class LayananViewModel @Inject constructor(
         }
     }
 
+    fun createTransPPOB(idPelanggan: String, idKeuntungan: String, hargaTotal: String) {
+
+        println("idPelanggan:$idPelanggan, idKeuntungan:$idKeuntungan, tujuan: $hargaTotal")
+        viewModelScope.launch {
+            val response = api.createTransPPOB(idPelanggan, idKeuntungan , hargaTotal )
+
+            if (response.isSuccessful) transPPOBResponse.value = response.body()
+
+            println("Tes PPOB : ${response.body()}")
+        }
+    }
+
     fun nullifyStatusPembelian() {
         transPembelianResponse.value = null
+    }
+
+    fun nullifyInquiryResponse() {
+        createInquiryResponse.value = null
     }
 
 

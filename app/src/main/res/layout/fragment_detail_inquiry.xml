@@ -1,15 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:flexDirection="column"
+    android:background="@drawable/im_detail_background"
     tools:context=".fragments.inquiry.DetailInquiryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/test"
+    <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:paddingHorizontal="20dp"
+        app:alignItems="flex_end"
+        android:layout_marginBottom="20dp"
+        app:layout_flexBasisPercent="20%">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pembayaran :"
+            android:textSize="16dp"
+            android:textColor="#BCffffff"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nomor_transaksi"
+            android:text="TRX"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:textColor="#BCFFFFFF"
+            />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="20dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
+        app:cardCornerRadius="20dp"
+        android:padding="20dp"
+        >
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:flexDirection="column"
+            >
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:paddingTop="30dp"
+                android:paddingHorizontal="20dp"
+                app:layout_flexBasisPercent="20%">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_marginRight="20dp"
+                    android:layout_width="0dp"
+                    app:cardCornerRadius="15dp"
+                    android:layout_height="match_parent"
+                    app:layout_flexBasisPercent="30%">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/secondary"/>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="wrap_content"
+                    app:flexDirection="column"
+                    app:justifyContent="space_around"
+                    android:paddingVertical="15dp"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/nama_produk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama Nama"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:id="@+id/tanggal_transaksi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nama Nama"
+                        android:textSize="14sp"
+                        />
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:flexDirection="column"
+                app:justifyContent="center"
+                app:alignItems="center"
+                app:layout_flexBasisPercent="25%">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total Tagihan"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. 25.000"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:id="@+id/total_tagihan"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:id="@+id/saldo_user"/>
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:flexDirection="column"
+                app:layout_flexBasisPercent="40%">
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_flexBasisPercent="50%">
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="0dp"
+                        app:flexDirection="column"
+                        app:justifyContent="center"
+                        android:paddingLeft="30dp"
+                        android:layout_height="match_parent"
+                        app:layout_flexBasisPercent="50%">
+
+                        <TextView
+                            android:gravity="bottom"
+                            app:layout_flexBasisPercent="50%"
+                            android:id="@+id/kolom_pertama_header"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Status"/>
+                        <TextView
+                            app:layout_flexBasisPercent="50%"
+                            android:id="@+id/status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="Selesai"/>
+
+                    </com.google.android.flexbox.FlexboxLayout>
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="0dp"
+                        app:flexDirection="column"
+                        app:justifyContent="center"
+                        android:paddingLeft="30dp"
+                        android:layout_height="match_parent"
+                        app:layout_flexBasisPercent="50%">
+
+                        <TextView
+                            android:gravity="bottom"
+
+                            app:layout_flexBasisPercent="50%"
+                            android:id="@+id/kolom_kedua_header"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="KWH"/>
+                        <TextView
+                            app:layout_flexBasisPercent="50%"
+                            android:id="@+id/kolom_kedua_isi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="900"/>
+
+                    </com.google.android.flexbox.FlexboxLayout>
+
+
+
+
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:layout_flexBasisPercent="50%">
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="0dp"
+                        app:flexDirection="column"
+                        app:justifyContent="center"
+                        android:paddingLeft="30dp"
+                        android:layout_height="match_parent"
+                        app:layout_flexBasisPercent="50%">
+
+                        <TextView
+                            android:gravity="bottom"
+
+                            app:layout_flexBasisPercent="50%"
+                            android:id="@+id/kolom_ketiga_header"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nomor"/>
+                        <TextView
+                            app:layout_flexBasisPercent="50%"
+                            android:id="@+id/kolom_ketiga_isi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="085854512322"/>
+
+                    </com.google.android.flexbox.FlexboxLayout>
+                    <com.google.android.flexbox.FlexboxLayout
+                        android:layout_width="0dp"
+                        app:flexDirection="column"
+                        app:justifyContent="center"
+                        android:paddingLeft="30dp"
+                        android:layout_height="match_parent"
+                        app:layout_flexBasisPercent="50%">
+
+                        <TextView
+                            android:gravity="bottom"
+                            app:layout_flexBasisPercent="50%"
+                            android:id="@+id/kolom_keempat_header"
+                            android:layout_marginBottom="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Status"/>
+                        <TextView
+                            app:layout_flexBasisPercent="50%"
+                            android:id="@+id/kolom_keempat_isi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:text="Selesai"/>
+
+                    </com.google.android.flexbox.FlexboxLayout>
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_flexGrow="1"
+                app:alignItems="center"
+                >
+                <Button
+                    android:id="@+id/bayar_button"
+                    android:layout_width="match_parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="BAYAR"
+                    />
+            </com.google.android.flexbox.FlexboxLayout>
+
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</com.google.android.flexbox.FlexboxLayout>

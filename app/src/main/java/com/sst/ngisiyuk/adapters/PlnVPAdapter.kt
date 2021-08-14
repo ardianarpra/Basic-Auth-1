@@ -7,19 +7,25 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.sst.ngisiyuk.fragments.PLNPascaFragment
 import com.sst.ngisiyuk.fragments.UniversalFragment
 
-class PlnVPAdapter(fragment: Fragment, val context: Context, val tipe: String): FragmentStateAdapter(fragment) {
+class PlnVPAdapter(
+    val fragment: Fragment,
+    val context: Context,
+    val tipe: String
+): FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int {
         return 2
     }
 
     override fun createFragment(position: Int): Fragment {
 
-        val universalFragment = PLNPascaFragment()
+
+
+        val plnPascaFragment = PLNPascaFragment()
         val bundle = Bundle()
         bundle.putString("tipe", tipe)
-        universalFragment.arguments = bundle
+        plnPascaFragment.arguments = bundle
         return when(position){
-            0 -> universalFragment
+            0 -> plnPascaFragment
             1 -> UniversalFragment()
             else -> Fragment()
         }

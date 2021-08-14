@@ -20,6 +20,7 @@
                     android:layout_marginBottom="10dp"
                     app:lottie_rawRes="@raw/anim_password"
                     app:lottie_loop="true"
+                    android:id="@+id/pin_animation"
                     app:lottie_autoPlay="true"
                     />
 

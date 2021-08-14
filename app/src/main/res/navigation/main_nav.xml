@@ -23,12 +23,6 @@
             android:id="@+id/action_homeFragment_to_PLNGroupFragment"
             app:destination="@id/PLNGroupFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_UniversalFragment"
-            app:destination="@id/UniversalFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_PLNTokenFragment"
-            app:destination="@id/PLNTokenFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_authFragment"
             app:destination="@id/authFragment" />
         <action
@@ -37,6 +31,12 @@
         <action
             android:id="@+id/action_homeFragment_to_topUpFragment"
             app:destination="@id/topUpFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_PLNPascaFragment"
+            app:destination="@id/PLNPascaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_universalFragment"
+            app:destination="@id/universalFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -127,6 +127,9 @@
         <argument
             android:name="tipe"
             app:argType="string" />
+        <action
+            android:id="@+id/action_pulsaDataContainerFragment_to_detailInquiryFragment"
+            app:destination="@id/detailInquiryFragment" />
     </fragment>
     <fragment
         android:id="@+id/gamePrabaDigiFragment"
@@ -145,24 +148,9 @@
         <argument
             android:name="tipe"
             app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/UniversalFragment"
-        android:name="com.sst.ngisiyuk.fragments.PLNPascaFragment"
-        android:label="fragment_p_l_n_pasca"
-        tools:layout="@layout/fragment_p_l_n_pasca" >
-        <argument
-            android:name="tipe"
-            app:argType="string" />
-    </fragment>
-    <fragment
-        android:id="@+id/PLNTokenFragment"
-        tools:layout="@layout/fragment_universal"
-        android:name="com.sst.ngisiyuk.fragments.UniversalFragment"
-        android:label="PLNTokenFragment" >
-        <argument android:name="tipe"
-            app:argType="string"
-            app:nullable="true" />
+        <action
+            android:id="@+id/action_PLNGroupFragment_to_detailInquiryFragment"
+            app:destination="@id/detailInquiryFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeTabContainerFragment"
@@ -198,6 +186,9 @@
         <action
             android:id="@+id/action_akunFragment_to_authFragment"
             app:destination="@id/authFragment" />
+        <action
+            android:id="@+id/action_akunFragment_to_editAkunFragment"
+            app:destination="@id/editAkunFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -213,12 +204,43 @@
     </fragment>
     <fragment
         android:id="@+id/topUpFragment"
-        android:name="com.sst.ngisiyuk.TopUpFragment"
+        android:name="com.sst.ngisiyuk.fragments.TopUpFragment"
         android:label="fragment_top_up"
         tools:layout="@layout/fragment_top_up" />
     <fragment
         android:id="@+id/transferFragment"
-        android:name="com.sst.ngisiyuk.TransferFragment"
+        android:name="com.sst.ngisiyuk.fragments.TransferFragment"
         android:label="fragment_transfer"
         tools:layout="@layout/fragment_transfer" />
+    <fragment
+        android:id="@+id/editAkunFragment"
+        android:name="com.sst.ngisiyuk.EditAkunFragment"
+        android:label="fragment_edit_akun"
+        tools:layout="@layout/fragment_edit_akun" />
+    <fragment
+        android:id="@+id/detailInquiryFragment"
+        android:name="com.sst.ngisiyuk.fragments.inquiry.DetailInquiryFragment"
+        android:label="fragment_detail_inquiry"
+        tools:layout="@layout/fragment_detail_inquiry" />
+    <fragment
+        android:id="@+id/PLNPascaFragment"
+        android:name="com.sst.ngisiyuk.fragments.PLNPascaFragment"
+        android:label="fragment_p_l_n_pasca"
+        tools:layout="@layout/fragment_p_l_n_pasca" >
+        <action
+            android:id="@+id/action_PLNPascaFragment_to_detailInquiryFragment"
+            app:destination="@id/detailInquiryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/universalFragment"
+        android:name="com.sst.ngisiyuk.fragments.UniversalFragment"
+        android:label="fragment_universal"
+        tools:layout="@layout/fragment_universal" >
+        <action
+            android:id="@+id/action_universalFragment_to_detailInquiryFragment"
+            app:destination="@id/detailInquiryFragment" />
+        <argument
+            android:name="tipe"
+            app:argType="string" />
+    </fragment>
 </navigation>

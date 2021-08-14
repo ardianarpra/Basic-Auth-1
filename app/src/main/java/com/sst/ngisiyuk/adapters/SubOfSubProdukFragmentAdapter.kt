@@ -13,9 +13,6 @@ import com.sst.ngisiyuk.databinding.ListProdukBinding
 import com.sst.ngisiyuk.models.ngisiyuk.DataXXX
 import com.sst.ngisiyuk.util.PopUpBaloon
 import com.sst.ngisiyuk.viewmodels.LayananViewModel
-import dagger.hilt.android.scopes.ActivityScoped
-import dagger.hilt.android.scopes.FragmentScoped
-import javax.inject.Inject
 
 
 class SubOfSubProdukFragmentAdapter(
@@ -63,7 +60,7 @@ class SubOfSubProdukFragmentAdapter(
                 pinBinding = InputPinLayoutBinding.inflate(LayoutInflater.from(binding.root.context)).apply {
                     pinInput.doAfterTextChanged {
                         if (it?.length == 6 && it.toString() == "123456"){
-                            layananViewModel.createTransPPOB(id, id_keuntungan, inputTujuan.text.toString())
+                            layananViewModel.createTransPembelian(id, id_keuntungan, inputTujuan.text.toString())
                             pinInput.text = null
                             closeBalloon()
 

@@ -116,6 +116,14 @@ interface NgisiyukServices {
     ) : Response<TransPembelianModel>
 
     @FormUrlEncoded
+    @POST("createTransPPOB")
+    suspend fun createTransPPOB(
+        @Field ("id_pelanggan") idPelanggan :String,
+        @Field("id_inquiry") idInquiry:String,
+        @Field("harga_total") hargaTotal: String
+    ) : Response<CreateTransPPOBModel>
+
+    @FormUrlEncoded
     @POST("history_transaksi")
     suspend fun getHistoryTransaksi(
         @Field("id") id:String

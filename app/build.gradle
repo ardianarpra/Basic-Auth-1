@@ -53,10 +53,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.signed
+            signingConfig signingConfigs.home
         }
         debug {
-            signingConfig signingConfigs.signed
+            signingConfig signingConfigs.home
         }
     }
     compileOptions {

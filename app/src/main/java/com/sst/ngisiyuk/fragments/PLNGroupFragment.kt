@@ -27,6 +27,8 @@ class PLNGroupFragment : Fragment() {
 
 
         binding = FragmentPLNGroupBinding.inflate(layoutInflater, container, false)
+
+
         val adapter = PlnVPAdapter(requireParentFragment(), requireContext(), args.tipe)
         tabLayout = binding.tabLayoutPlnGroup
         viewPager = binding.plnViewPager
