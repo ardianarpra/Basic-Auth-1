@@ -214,7 +214,7 @@
         tools:layout="@layout/fragment_transfer" />
     <fragment
         android:id="@+id/editAkunFragment"
-        android:name="com.sst.ngisiyuk.EditAkunFragment"
+        android:name="com.sst.ngisiyuk.fragments.EditAkunFragment"
         android:label="fragment_edit_akun"
         tools:layout="@layout/fragment_edit_akun" />
     <fragment

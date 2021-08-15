@@ -5,56 +5,80 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sst.ngisiyuk.R
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.sst.ngisiyuk.adapters.ListBankAdapter
+import com.sst.ngisiyuk.databinding.FragmentTopUpBinding
+import com.sst.ngisiyuk.models.ngisiyuk.DataXXXXXXXXXX
+import com.sst.ngisiyuk.viewmodels.TopUpViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TopUpFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class TopUpFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var binding : FragmentTopUpBinding
+    lateinit var listBankRV : RecyclerView
+    private val topUpModel by activityViewModels<TopUpViewModel>()
 
+    @Inject lateinit var id : String
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_top_up, container, false)
+        binding = FragmentTopUpBinding.inflate(inflater, container, false)
+        topUpModel.nullifyEveryThing()
+        binding.expandableHeader.setOnClickListener {
+            binding.expandableLayout.isExpanded = !binding.expandableLayout.isExpanded
+        }
+
+        topUpModel.topUpResponse.observe(viewLifecycleOwner,{
+            println(it)
+        })
+        topUpModel.listBankPerusahaan.observe(viewLifecycleOwner,{
+            initListBankRV(it.data)
+        })
+        topUpModel.chosenBank.observe(viewLifecycleOwner,{
+            it?.let {
+                binding.expandableHeader.text = it.nama_bank
+                handleTopUp(it)
+            }
+        })
+
+
+        initListBank()
+        // test
+        handleExpanded()
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TopUpFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TopUpFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun handleExpanded() {
+
+        binding.expandedView.setOnClickListener {
+            binding.expandedView.collapse()
+        }
     }
+
+    private fun handleTopUp(data: DataXXXXXXXXXX) {
+        binding.topupButton.setOnClickListener {
+            topUpModel.topUpSaldo(id, data.id_bank, "50000")
+        }
+    }
+
+    private fun initListBank() {
+        if (topUpModel.listBankPerusahaan.value == null) topUpModel.getListBank()
+    }
+
+    private fun initListBankRV(data: List<DataXXXXXXXXXX>) {
+        val adapter = ListBankAdapter(data, topUpModel, binding.expandableLayout)
+        listBankRV = binding.listBankRv
+        listBankRV.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            setAdapter(adapter)
+        }
+    }
+
+
 }

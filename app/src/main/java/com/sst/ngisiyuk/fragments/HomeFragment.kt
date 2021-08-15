@@ -43,8 +43,6 @@ class HomeFragment : Fragment(), ThousandSeparator {
     lateinit var binding : FragmentHomeBinding
     private lateinit var dialog:AlertDialog.Builder
     private lateinit var loginDialog : AlertDialog
-    lateinit var pinDialog : AestheticDialog.Builder
-    val metrics = DisplayMetrics()
 
     private val layananViewModel : LayananViewModel by activityViewModels()
     private val userVM :UserDataViewModel by activityViewModels()
@@ -64,9 +62,6 @@ class HomeFragment : Fragment(), ThousandSeparator {
         println("userPrefs: ${userPrefs.getBoolean("isOpened", false)}")
         println("phoneNumber : ${auth.currentUser?.phoneNumber}")
         dialog = AlertDialog.Builder(requireContext())
-        pinDialog = AestheticDialog.Builder(requireActivity(), DialogStyle.FLAT, DialogType.SUCCESS)
-        requireActivity().windowManager.defaultDisplay.getMetrics(metrics)
-        println("Widht: ${metrics.widthPixels}, height:${metrics.heightPixels}")
 
         layananViewModel.allServices.observe(viewLifecycleOwner,{
             initServiceRV(it)
@@ -115,8 +110,7 @@ class HomeFragment : Fragment(), ThousandSeparator {
 
 
         binding.includeInfo.transfer.setOnClickListener {
-//            if (profil == null) loginDialog.show() else findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransferFragment())
-                pinDialog.show()
+            if (profil == null) loginDialog.show() else findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTransferFragment())
         }
         binding.includeInfo.topUpUser.setOnClickListener {
             if (profil == null) loginDialog.show() else findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToTopUpFragment())

@@ -142,6 +142,34 @@ interface NgisiyukServices {
         @Field("tipe") tipe:String
     ) :Response<DetailTransaksiModel>
 
+    /* API DIBAWAH ADALAH API UNTUK TOP UP DAN TRANSFER SALDO */
 
+    @FormUrlEncoded
+    @POST("topupsaldo")
+    suspend fun topUpSaldo(
+        @Field("id") id :String,
+        @Field("id_b") id_b :String,
+        @Field("saldo") saldo :String,
+    ): Response<TopUpSaldoModel>
+
+
+    @POST("listbank")
+    suspend fun getListBankPerusahaan(): Response<ListBankPerusahaanModel>
+
+    @FormUrlEncoded
+    @POST("readActivitySaldoApi")
+    suspend fun readActivitySaldo(
+        @Field("id") id: String,
+        @Field("date_start") date_start: String, // 2021-06-10
+        @Field("date_end") date_end: String, // 2021-08-20
+    ): Response<ReadActivitySaldoModel>
+
+    @FormUrlEncoded
+    @POST("transferSaldoApi")
+    suspend fun createTransferSaldo(
+        @Field("dari") dari :String,
+        @Field("kepada") kepada :String,
+        @Field("jumlah") jumlah :String,
+    ): Response<ResponseTransferSaldoModel>
 
 }

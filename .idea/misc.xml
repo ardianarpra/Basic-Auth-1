@@ -27,6 +27,8 @@
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/keyboard.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk/app/src/main/res/layout/list_produk.xml" value="0.3359375" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/activity_main.xml" value="0.165625" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/anim_idle.xml" value="0.5203125" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/expandaple_header.xml" value="0.5203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_akun.xml" value="0.5203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_auth.xml" value="0.5203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_data.xml" value="0.5203125" />
@@ -44,10 +46,13 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_splash.xml" value="0.33203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_sub_of_sub_produk.xml" value="0.5203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_sub_produk.xml" value="0.5203125" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_top_up.xml" value="0.5203125" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_transfer.xml" value="0.5203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_universal.xml" value="0.5203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/fragment_welcome.xml" value="0.33" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/include_info_user.xml" value="0.5203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/input_pin_layout.xml" value="0.51953125" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/list_bank_layout.xml" value="0.5203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/popup_login.xml" value="0.5203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/popup_signout.xml" value="0.5203125" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Ngisiyuk/app/src/main/res/layout/progress_dialog.xml" value="0.5203125" />

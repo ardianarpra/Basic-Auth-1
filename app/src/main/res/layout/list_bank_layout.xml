@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/list_bank_rv_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ListBank"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
+
+        />
+
+</com.google.android.flexbox.FlexboxLayout>

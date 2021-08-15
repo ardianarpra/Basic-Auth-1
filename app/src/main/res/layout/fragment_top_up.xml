@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TopUpFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:flexDirection="column"
+    tools:context=".fragments.TopUpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/expandable_header"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="20dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50dp"
+        android:text="Pilih Bank"
+        />
 
-</FrameLayout>
+
+
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/expandable_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:el_duration="500"
+        app:el_expanded="false"
+        app:el_parallax="0.5">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/list_bank_rv"
+            />
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+
+    <Button
+        android:id="@+id/topup_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="topup"/>
+
+    <com.skydoves.expandablelayout.ExpandableLayout
+        app:el_expanded="true"
+        android:id="@+id/expanded_view"
+        android:layout_width="match_parent"
+        app:expandable_showSpinner="true"
+        app:expandable_spinner_animate="true"
+        app:expandable_isExpanded="false"
+        app:expandable_parentLayout="@layout/expandaple_header"
+        android:layout_height="wrap_content"
+        app:expandable_secondLayout="@layout/anim_idle"
+        />
+</com.google.android.flexbox.FlexboxLayout>
