@@ -80,16 +80,17 @@
             >
 
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="120dp"
                 android:layout_height="0dp"
                 android:scaleType="fitStart"
-                app:layout_flexBasisPercent="25%"
-                android:src="@drawable/im_hokygo"/>
+                app:layout_flexBasisPercent="30%"
+
+                android:src="@drawable/im_logo_ngisiyuk"/>
 
             <TextView
                 android:layout_marginTop="10dp"
                 android:id="@+id/auth_description"
-                android:text="HokyGO adalah aplikasi layanan PPOB, Multi Jasa dan Profesi"
+                android:text="Ngisiyuk adalah aplikasi layanan PPOB, Multi Jasa dan Profesi"
                 android:layout_width="wrap_content"
                 android:textSize="16sp"
                 android:layout_height="wrap_content"

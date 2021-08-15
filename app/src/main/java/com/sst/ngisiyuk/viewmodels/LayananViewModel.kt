@@ -1,5 +1,8 @@
 package com.sst.ngisiyuk.viewmodels
 
+import android.app.Activity
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -7,6 +10,7 @@ import com.google.gson.Gson
 import com.sst.ngisiyuk.models.ngisiyuk.*
 import com.sst.ngisiyuk.repositories.LayananRepository
 import com.sst.ngisiyuk.services.NgisiyukServices
+import com.sst.ngisiyuk.util.LoadingBar
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,8 +18,9 @@ import javax.inject.Inject
 @HiltViewModel
 class LayananViewModel @Inject constructor(
     private val api : NgisiyukServices,
-    private val layananRepo :LayananRepository
-):ViewModel() {
+    private val layananRepo :LayananRepository,
+    ):ViewModel() {
+
 
 
     val allServices = MutableLiveData<ArrayList<Produk>>()

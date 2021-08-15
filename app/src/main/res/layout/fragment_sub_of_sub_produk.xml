@@ -6,7 +6,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:flexDirection="column"
     tools:context=".fragments.SubOfSubProdukFragment">
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:alignItems="center"
 
+        app:justifyContent="center">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/im_logo_only" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:src="@drawable/im_logo_text" />
+
+    </com.google.android.flexbox.FlexboxLayout>
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
@@ -21,7 +41,9 @@
 
     <!-- TODO: Update blank fragment layout -->
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="20dp"
         app:layout_flexGrow="1"
+        android:layout_marginHorizontal="20dp"
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"

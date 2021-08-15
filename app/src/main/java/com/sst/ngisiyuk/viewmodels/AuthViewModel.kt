@@ -11,6 +11,7 @@ import com.sst.ngisiyuk.models.CredsModel
 import com.sst.ngisiyuk.models.ngisiyuk.CekPelanggan
 import com.sst.ngisiyuk.models.ngisiyuk.CreateProfil
 import com.sst.ngisiyuk.services.NgisiyukServices
+import com.sst.ngisiyuk.util.LoadingBar
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
@@ -48,9 +49,9 @@ class AuthViewModel  @Inject constructor(
             if (response.isSuccessful) hasilCekNomor.value = response.body()
         }
     }
-    fun signUp() {
+    fun signUp(referral:String) {
         viewModelScope.launch {
-            val response = api.createProfil(phoneNumber, namaUser, kotaUser, pin, "12345")
+            val response = api.createProfil(phoneNumber, namaUser, kotaUser, pin, referral)
             if (response.isSuccessful) signUpResponse.value = response.body()
         }
     }

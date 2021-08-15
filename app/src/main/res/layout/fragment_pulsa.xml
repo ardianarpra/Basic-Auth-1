@@ -15,16 +15,20 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_nomor"
+            android:inputType="number"
+            android:hint="contoh: 0852xxxxxx"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:ignore="SpeakableTextPresentCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginHorizontal="20dp"
         android:id="@+id/pulsa_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"

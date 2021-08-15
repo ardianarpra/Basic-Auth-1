@@ -39,9 +39,8 @@ class MainActivity : AppCompatActivity() {
         val navigation = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val inflater = navigation.navController.navInflater
         val graph = inflater.inflate(R.navigation.main_nav)
-
-        if (isOpened) graph.startDestination = R.id.homeTabContainerFragment
-        else graph.startDestination = R.id.splashFragment
+        //        if (isOpened) graph.startDestination = R.id.homeTabContainerFragment
+        //        else graph.startDestination = R.id.welcomeFragment
 
         navigation.navController.graph = graph
         navController = navigation.navController

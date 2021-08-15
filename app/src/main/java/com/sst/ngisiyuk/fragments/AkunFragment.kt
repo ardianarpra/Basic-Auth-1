@@ -49,7 +49,7 @@ class AkunFragment : Fragment(), ThousandSeparator {
         userVM.dataUser.observe(viewLifecycleOwner,{ profil ->
 
             binding.akunNama.text = profil?.data?.nama_pelanggan ?: ""
-            binding.akunNomorHp.text = profil?.data?.no_hp ?: ""
+            binding.akunNomorHp.text = if (profil == null) "" else "0${profil.data.no_hp}"
             binding.kodeReferral.text = profil?.data?.referral ?: ""
             binding.included.nominalSaldoUser.text = "Rp. ${thousandSeparator((profil?.data?.saldo ?: 0), ".")}"
 //            binding.logoutButton.apply {

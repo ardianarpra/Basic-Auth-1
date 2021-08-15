@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.sst.ngisiyuk.databinding.FragmentOtpBinding
 import com.sst.ngisiyuk.util.LoadingBar
 import com.sst.ngisiyuk.viewmodels.AuthViewModel
+import java.util.*
 
 
 class OtpFragment : Fragment() {
@@ -67,7 +68,7 @@ class OtpFragment : Fragment() {
                 if (it?.status == false){
                     binding.verifOtpButton.setOnClickListener {
                         loading.showAlert(false)
-                        viewModel.signUp()
+                        viewModel.signUp(UUID.randomUUID().toString().take(5))
                     }
                 } else if (it?.status == true){
                     binding.verifOtpButton.text = "LOGIN"
@@ -107,7 +108,7 @@ class OtpFragment : Fragment() {
 
 
 
-
+//        TODO("mengganti sukse signinfirebase dulu baru signup database dengan mengambil uid sebagai kode referral")
 
 
 
