@@ -152,4 +152,7 @@ dependencies {
     implementation "com.github.skydoves:expandablelayout:1.0.7"
 
     implementation 'com.cottacush:CurrencyEditText:0.0.7'
+
+    implementation 'com.google.firebase:firebase-appcheck-safetynet:16.0.0-beta02'
+
 }

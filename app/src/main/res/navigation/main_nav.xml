@@ -196,9 +196,13 @@
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
         <action
+            app:popUpTo="@id/main_nav"
+            app:popUpToInclusive="true"
             android:id="@+id/action_welcomeFragment_to_splashFragment"
             app:destination="@id/splashFragment" />
         <action
+            app:popUpTo="@id/main_nav"
+            app:popUpToInclusive="true"
             android:id="@+id/action_welcomeFragment_to_homeTabContainerFragment"
             app:destination="@id/homeTabContainerFragment" />
     </fragment>

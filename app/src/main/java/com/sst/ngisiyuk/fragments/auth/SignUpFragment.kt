@@ -73,12 +73,12 @@ class SignUpFragment : Fragment() {
 
         binding.buatAkunButton.setOnClickListener {
 
-
+            println(nomorUser.text)
             if(nomorUser.text.isEmpty() || namaUser.text.isEmpty() || kotaUser.text.isEmpty()){
-
                 Toast.makeText(requireContext(), "Semua data harus lengkap !!", Toast.LENGTH_SHORT).show()
 
             }else {
+                println("Terjadi Else")
                 loading.showAlert(false)
                 viewModel.cekUser(nomorUser.text.toString())
             }
@@ -86,10 +86,12 @@ class SignUpFragment : Fragment() {
 
 
         viewModel.hasilCekNomor.observe(viewLifecycleOwner, {
+            println(it)
+
             if (it?.status == false){
                 viewModel.fillDataUser(nomorUser.text.toString().drop(1), namaUser.text.toString(), kotaUser.text.toString(),pin.text.toString())
                 viewModel.startPhoneNumberVerification(nomorUser.text.toString(), requireActivity())
-            } else if (it?.data == true) {
+            } else if (it?.status == true) {
                 loading.closeAlert()
                 binding.signUpNotif.text = "*nomor anda sudah terdaftar, silahkan login"
             }

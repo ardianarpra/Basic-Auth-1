@@ -46,7 +46,13 @@ class AuthViewModel  @Inject constructor(
     fun cekUser(number :String){
         viewModelScope.launch {
             val response = api.cekPelanggan(number.drop(1))
-            if (response.isSuccessful) hasilCekNomor.value = response.body()
+            if (response.isSuccessful) {
+                hasilCekNomor.value = response.body()
+                println("HasilCEk : ${response.body()} , number:$number")
+            }
+
+
+
         }
     }
     fun signUp(referral:String) {
