@@ -1,19 +1,18 @@
 package com.sst.ngisiyuk.di
 
+import android.app.Activity
 import android.app.Application
 import android.content.SharedPreferences
-import android.util.DisplayMetrics
-import android.view.LayoutInflater
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import com.google.firebase.auth.FirebaseAuth
 import com.google.gson.GsonBuilder
 import com.sst.ngisiyuk.R
-import com.sst.ngisiyuk.databinding.InputPinLayoutBinding
 import com.sst.ngisiyuk.repositories.ApiServicesRepo
 import com.sst.ngisiyuk.repositories.LayananRepository
 import com.sst.ngisiyuk.services.ApiServices
 import com.sst.ngisiyuk.services.NgisiyukServices
+import com.sst.ngisiyuk.util.DisplayMetrics
 import com.sst.ngisiyuk.util.LoadingBar
 import dagger.Module
 import dagger.Provides
@@ -93,6 +92,11 @@ object AppModule {
     @Singleton
     @Provides
     fun provideShakeAnim(application: Application): Animation = AnimationUtils.loadAnimation(application, R.anim.shake)
+
+    @Singleton
+    @Provides
+    fun providesLoader(application: Application) : LoadingBar = LoadingBar(application)
+
 
 
 }

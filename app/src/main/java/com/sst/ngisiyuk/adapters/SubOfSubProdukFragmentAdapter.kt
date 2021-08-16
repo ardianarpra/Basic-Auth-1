@@ -1,9 +1,13 @@
 package com.sst.ngisiyuk.adapters
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
@@ -11,7 +15,6 @@ import com.sst.ngisiyuk.R
 import com.sst.ngisiyuk.databinding.InputPinLayoutBinding
 import com.sst.ngisiyuk.databinding.ListProdukBinding
 import com.sst.ngisiyuk.models.ngisiyuk.DataXXX
-import com.sst.ngisiyuk.util.PopUpBaloon
 import com.sst.ngisiyuk.viewmodels.LayananViewModel
 
 
@@ -20,10 +23,11 @@ class SubOfSubProdukFragmentAdapter(
     val layananViewModel: LayananViewModel,
     val id: String,
     val inputTujuan: TextInputEditText,
+    val widthPixels: Int,
 ): RecyclerView.Adapter<SubOfSubProdukFragmentAdapter.SubOfSubProdukFragmentViewHolder>() {
 
-
-    lateinit var balloon :PopUpBaloon
+    lateinit var dialog :AlertDialog.Builder
+    lateinit var inputPinDialog :AlertDialog
     lateinit var pinBinding : InputPinLayoutBinding
 
     class SubOfSubProdukFragmentViewHolder(val binding: ListProdukBinding) : RecyclerView.ViewHolder(binding.root)
@@ -38,7 +42,8 @@ class SubOfSubProdukFragmentAdapter(
     }
 
     override fun onBindViewHolder(holder: SubOfSubProdukFragmentViewHolder, position: Int) {
-
+        dialog = AlertDialog.Builder(holder.binding.root.context)
+        inputPinDialog = dialog.create()
         with (holder){
             with(it[position]){
                 val anim = AnimationUtils.loadAnimation(binding.root.context, R.anim.shake).apply {
@@ -72,17 +77,23 @@ class SubOfSubProdukFragmentAdapter(
                     }
                 }
 
-                balloon = PopUpBaloon(binding.root.context, pinBinding.root)
+
 
 
 
 
                 binding.namaProduk.text = nama
                 binding.root.setOnClickListener {
+                    inputPinDialog.setView(pinBinding.root)
                     println(id)
                     if (inputTujuan.text?.isNotEmpty()!!){
                         println("Not Emt")
-                        balloon.showBaloon(binding.root.parent)
+                        inputPinDialog.show()
+                        val lp = WindowManager.LayoutParams()
+                        lp.copyFrom(inputPinDialog.window?.attributes)
+                        lp.width = (widthPixels / 1.5).toInt()
+                        inputPinDialog.window?.attributes = lp
+                        inputPinDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
                     }
                 }
 
@@ -99,7 +110,7 @@ class SubOfSubProdukFragmentAdapter(
     }
 
     private fun closeBalloon(){
-        balloon.baloon.dismiss()
+        inputPinDialog.dismiss()
     }
 
 }

@@ -9,8 +9,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.sst.ngisiyuk.databinding.FragmentAkunBinding
 import com.sst.ngisiyuk.util.ThousandSeparator
 import com.sst.ngisiyuk.viewmodels.UserDataViewModel
@@ -22,6 +24,7 @@ import com.skydoves.balloon.createBalloon
 import com.sst.ngisiyuk.Constant
 import com.sst.ngisiyuk.R
 import com.sst.ngisiyuk.adapters.MenuAkunAdapter
+import com.sst.ngisiyuk.databinding.PopupLoginBinding
 import javax.inject.Inject
 
 
@@ -30,6 +33,7 @@ class AkunFragment : Fragment(), ThousandSeparator {
     lateinit var binding: FragmentAkunBinding
 
     private val userVM by activityViewModels<UserDataViewModel>()
+    lateinit var loginPopUp : AlertDialog
 
     @Inject lateinit var auth :FirebaseAuth
     @SuppressLint("SetTextI18n")
@@ -45,6 +49,7 @@ class AkunFragment : Fragment(), ThousandSeparator {
         handleCopyKode()
         handleIconLoginTransformation()
         initMenuAkunRV()
+        handleNotLogin()
 
         userVM.dataUser.observe(viewLifecycleOwner,{ profil ->
 
@@ -69,6 +74,25 @@ class AkunFragment : Fragment(), ThousandSeparator {
 
 
         return binding.root
+    }
+
+    private fun handleNotLogin() {
+        if(auth.currentUser == null){
+            val loginBinding = PopupLoginBinding.inflate(LayoutInflater.from(requireContext())).apply {
+                popupButton.setOnClickListener {
+                    findNavController().navigate(AkunFragmentDirections.actionAkunFragmentToAuthFragment())
+                    loginPopUp.dismiss()
+                }
+            }
+            loginPopUp = AlertDialog.Builder(requireContext()).apply {
+                this.setView(loginBinding.root)
+            }.create()
+            arrayListOf(binding.included.topUpUser, binding.included.transfer).forEach {
+                it.setOnClickListener {
+                    loginPopUp.show()
+                }
+            }
+        }
     }
 
     private fun handleIconLoginTransformation() {
