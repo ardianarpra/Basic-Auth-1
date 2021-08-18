@@ -1,94 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:flexDirection="column"
+
+
+<FrameLayout android:layout_width="match_parent"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.HomeFragment">
-    <com.google.android.flexbox.FlexboxLayout
+    app:flexDirection="column"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
         android:layout_width="match_parent"
-        app:flexDirection="column"
+        android:layout_height="250dp"
+        android:background="@color/secondary"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <FrameLayout
+        <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
+            app:flexDirection="column"
             android:layout_height="wrap_content">
 
-            <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-                android:id="@+id/carousel"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:showBottomShadow="false"
-                android:background="@color/secondary"
-                app:showTopShadow="false"
-                app:carouselType="SHOWCASE"
-                app:showIndicator="true"
-                app:autoPlay="true"
-                app:scaleOnScroll="true"
-                app:carouselGravity="CENTER"
-                app:showNavigationButtons="false"/>
+            <include
 
-            <com.google.android.material.card.MaterialCardView
-
-                android:id="@+id/home_login_button"
-                android:layout_width="wrap_content"
-                android:clickable="true"
-                android:layout_gravity="end"
-                android:layout_margin="10dp"
-                android:background="?selectableItemBackground"
                 android:layout_height="wrap_content"
-                android:focusable="true">
-                <com.google.android.flexbox.FlexboxLayout
-                    android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:id="@+id/include_info"
+                layout="@layout/include_info_user"
+                />
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginBottom="20dp"
+                >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_alignParentBottom="true"
+                    android:id="@+id/service_rv"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:alignItems="center"
-                    app:justifyContent="center"
-                    android:layout_margin="5dp"
-                    >
+                    android:paddingVertical="10dp"
 
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/ic_login"
-                        app:tint="@color/primary" />
+                    />
+            </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:textColor="@color/primary"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Masuk"
-                        android:layout_marginLeft="5dp"
-                        android:textSize="16dp"
-                        android:textStyle="bold" />
+            <include
+                android:id="@+id/include_news"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/carousel_layout"
+                android:layout_marginBottom="20dp"
+                />
 
-                </com.google.android.flexbox.FlexboxLayout>
-            </com.google.android.material.card.MaterialCardView>
+            <include
+                android:id="@+id/include_feed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/feed_carousel"
 
-        </FrameLayout>
+                />
 
-        <include
-            android:layout_margin="20dp"
-            android:layout_height="wrap_content"
+        <Space
             android:layout_width="match_parent"
-            android:id="@+id/include_info"
-            layout="@layout/include_info_user"
+            android:layout_height="30dp"
             />
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginHorizontal="20dp"
-            android:id="@+id/service_rv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-
-
-
-    </com.google.android.flexbox.FlexboxLayout>
-
-
-
-
-
+        </com.google.android.flexbox.FlexboxLayout>
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>
+
+
+
+
+

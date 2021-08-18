@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:flexDirection="column"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:paddingHorizontal="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What's New"
+        android:textSize="17sp"
+        android:textColor="@color/black"
+        />
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/news_carousel"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:showBottomShadow="false"
+        app:showTopShadow="false"
+        app:showNavigationButtons="false"
+        app:carouselType="SHOWCASE"
+        app:carouselGravity="CENTER"
+        app:showIndicator="true"
+        />
+
+
+</com.google.android.flexbox.FlexboxLayout>

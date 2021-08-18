@@ -7,10 +7,11 @@
 
     <ImageView
         android:layout_gravity="center"
-
+        android:scaleY="0.42"
+        android:scaleX="0.42"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:src="@drawable/im_logo_flat" />
+        android:src="@drawable/im_logo_ngisiyuk" />
 
     <TextView
         android:layout_gravity="center|bottom"

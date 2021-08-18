@@ -34,7 +34,6 @@
                 android:src="@drawable/ic_back"
                 android:padding="10dp"/>
             <com.google.android.flexbox.FlexboxLayout
-                android:layout_marginBottom="20dp"
                 android:layout_width="wrap_content"
                 app:flexDirection="column"
                 app:alignItems="center"
@@ -74,15 +73,9 @@
                 android:padding="10dp"/>
 
         </com.google.android.flexbox.FlexboxLayout>
-        <include
-            android:id="@+id/included"
-            layout="@layout/include_info_user"
-            android:layout_marginHorizontal="20dp"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent" />
 
         <TextView
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:textSize="15dp"
 
@@ -112,7 +105,7 @@
         android:layout_height="0dp"
         app:layout_flexGrow="1"
         app:alignItems="flex_end"
-        app:justifyContent="center"
+        android:paddingTop="20dp"
         app:flexDirection="column"
         >
         <androidx.recyclerview.widget.RecyclerView

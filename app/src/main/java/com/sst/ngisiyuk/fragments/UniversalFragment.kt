@@ -22,9 +22,6 @@ import com.sst.ngisiyuk.models.ngisiyuk.IsiLayananModel
 import com.sst.ngisiyuk.util.PopUpBaloon
 import com.sst.ngisiyuk.viewmodels.LayananViewModel
 import com.sst.ngisiyuk.viewmodels.UserDataViewModel
-import com.thecode.aestheticdialogs.AestheticDialog
-import com.thecode.aestheticdialogs.DialogStyle
-import com.thecode.aestheticdialogs.DialogType
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

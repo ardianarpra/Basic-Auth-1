@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.firebase.auth.FirebaseAuth
+import com.sst.ngisiyuk.models.ngisiyuk.DataXXXXXXXX
 import com.sst.ngisiyuk.models.ngisiyuk.HistoryModel
 import com.sst.ngisiyuk.services.NgisiyukServices
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +18,7 @@ class HistoryViewModel @Inject constructor(
 
 ):ViewModel() {
 
-    val historyTransaksiResponse = MutableLiveData<HistoryModel>()
+    val historyTransaksiResponse = MutableLiveData<HistoryModel?>()
 
 
     fun getHistory(userId: String){
@@ -32,4 +32,28 @@ class HistoryViewModel @Inject constructor(
             }
         }
     }
+
+    fun getTopUpHistory(data : HistoryModel): MutableList<DataXXXXXXXX>{
+        val topUpArray = mutableListOf<DataXXXXXXXX>()
+        data.data.forEach {
+            if (it.tipe == "topup") topUpArray.add(it)
+        }
+
+        return topUpArray
+    }
+
+    fun getPembelianHistory(data : HistoryModel): MutableList<DataXXXXXXXX>{
+        val pembelian = mutableListOf<DataXXXXXXXX>()
+        data.data.forEach {
+            if (it.tipe == "pembelian") pembelian.add(it)
+        }
+
+        return pembelian
+    }
+
+    fun nullifyHistory() {
+        historyTransaksiResponse.value = null
+    }
+
+
 }

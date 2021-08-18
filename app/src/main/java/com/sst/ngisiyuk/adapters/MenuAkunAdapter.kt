@@ -13,8 +13,9 @@ import com.sst.ngisiyuk.databinding.PopupSignoutBinding
 import com.sst.ngisiyuk.models.ngisiyuk.MenuAkun
 import dagger.hilt.android.scopes.ActivityScoped
 import android.view.WindowManager
-
-
+import androidx.navigation.findNavController
+import com.sst.ngisiyuk.databinding.ListMenuAkunBinding
+import com.sst.ngisiyuk.fragments.AkunFragmentDirections
 
 
 @ActivityScoped
@@ -24,11 +25,11 @@ class MenuAkunAdapter(val menuAkun: ArrayList<MenuAkun>) : RecyclerView.Adapter<
     lateinit var signOutPopUp: AlertDialog
     lateinit var popSignOutBinding : PopupSignoutBinding
 
-    class MenuAkunViewHolder(val binding: ListProdukBinding) : RecyclerView.ViewHolder(binding.root)
+    class MenuAkunViewHolder(val binding: ListMenuAkunBinding) : RecyclerView.ViewHolder(binding.root)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuAkunViewHolder {
-        val binding = ListProdukBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ListMenuAkunBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         popSignOutBinding = PopupSignoutBinding.inflate(LayoutInflater.from(parent.context), parent, false).apply {
             popupButtonSignOut.setOnClickListener {
                 handleSignOut()
@@ -55,13 +56,19 @@ class MenuAkunAdapter(val menuAkun: ArrayList<MenuAkun>) : RecyclerView.Adapter<
                 binding.listProdukGambar.setImageResource(pathGambar)
                 binding.namaProduk.text = namaMenu
 
-                when(position){
-                    6 -> {
-                        binding.root.setOnClickListener {
+
+                binding.root.setOnClickListener {
+                    when(position){
+                        2 -> {
+                            it.findNavController().navigate(AkunFragmentDirections.actionAkunFragmentToRingkasanAkunFragment())
+                        }
+                        5 -> {
                             showPopUpSignOut()
                         }
+
                     }
                 }
+
             }
         }
 

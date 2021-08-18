@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secondary"
+    app:flexDirection="column"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RingkasanAkunFragment">
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_flexBasisPercent="10%"
+        android:elevation="5dp"
+        app:alignItems="center"
+        android:paddingLeft="20sp"
+        android:background="@drawable/bottom_corner">
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_chevron_left"/>
+        <TextView
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ringkasan Akun"
+            android:textSize="20sp"/>
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+</com.google.android.flexbox.FlexboxLayout>

@@ -19,6 +19,7 @@ import com.sst.ngisiyuk.viewmodels.UserDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
 import com.skydoves.balloon.createBalloon
 import com.sst.ngisiyuk.Constant
@@ -44,8 +45,6 @@ class AkunFragment : Fragment(), ThousandSeparator {
         binding = FragmentAkunBinding.inflate(inflater, container, false)
         handleBackButton()
         handleEditButton()
-        handleTopUpButton()
-        handleTransferButton()
         handleCopyKode()
         handleIconLoginTransformation()
         initMenuAkunRV()
@@ -56,14 +55,7 @@ class AkunFragment : Fragment(), ThousandSeparator {
             binding.akunNama.text = profil?.data?.nama_pelanggan ?: ""
             binding.akunNomorHp.text = if (profil == null) "" else "0${profil.data.no_hp}"
             binding.kodeReferral.text = profil?.data?.referral ?: ""
-            binding.included.nominalSaldoUser.text = "Rp. ${thousandSeparator((profil?.data?.saldo ?: 0), ".")}"
-//            binding.logoutButton.apply {
-//                setOnClickListener {
-//                    if (profil != null) auth.signOut() else findNavController().navigate(AkunFragmentDirections.actionAkunFragmentToAuthFragment())
-//                }
-//
-//                text = if (profil == null) "Log In" else "Log Out"
-//            }
+
 
 
 
@@ -87,11 +79,7 @@ class AkunFragment : Fragment(), ThousandSeparator {
             loginPopUp = AlertDialog.Builder(requireContext()).apply {
                 this.setView(loginBinding.root)
             }.create()
-            arrayListOf(binding.included.topUpUser, binding.included.transfer).forEach {
-                it.setOnClickListener {
-                    loginPopUp.show()
-                }
-            }
+
         }
     }
 
@@ -108,7 +96,7 @@ class AkunFragment : Fragment(), ThousandSeparator {
         println("Akun RV")
         val adapter = MenuAkunAdapter(Constant.menuAkun)
         binding.akunRecyclerView.apply {
-            layoutManager = GridLayoutManager(requireContext(), 4)
+            layoutManager = LinearLayoutManager(requireContext())
             setAdapter(adapter)
         }
     }
@@ -140,17 +128,9 @@ class AkunFragment : Fragment(), ThousandSeparator {
 
     }
 
-    private fun handleTransferButton() {
-        binding.included.transfer.setOnClickListener {
-            findNavController().navigate(AkunFragmentDirections.actionAkunFragmentToTransferFragment())
-        }
-    }
 
-    private fun handleTopUpButton() {
-        binding.included.topUpUser.setOnClickListener {
-            findNavController().navigate(AkunFragmentDirections.actionAkunFragmentToTopUpFragment())
-        }
-    }
+
+
 
     private fun handleEditButton() {
         auth.addAuthStateListener {firebase ->

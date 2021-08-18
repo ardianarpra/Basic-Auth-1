@@ -1,14 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.flexbox.FlexboxLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.NewsFragment">
+    app:flexDirection="column"
+    android:clickable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.NewsFragment"
+    android:focusable="true">
 
-    <include
-        android:id="@+id/include"
-        android:layout_height="match_parent"
+    <ImageView
         android:layout_width="match_parent"
-        layout="@layout/anim_coming_soom"/>
+        android:layout_height="0dp"
+        app:layout_flexBasisPercent="50%"
+        android:src="@drawable/im_ajak_teman"
+        android:paddingHorizontal="20dp"/>
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:flexDirection="column"
+        app:layout_flexGrow="1"
+        android:layout_marginTop="20dp"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:cardCornerRadius="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/view_kode_ref"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingLeft="10dp"
+                android:background="@drawable/colored_border_text_input"
+                />
 
-</FrameLayout>
+
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_width="wrap_content"
+                    app:justifyContent="center"
+                    app:alignItems="center"
+                    android:layout_gravity="end"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/copy_refs"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:clickable="true"
+                        android:background="?selectableItemBackground"
+                        android:src="@drawable/ic_copy"
+                        android:layout_marginRight="10dp"
+                        android:focusable="true" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="end"
+                        app:cardCornerRadius="10dp"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/bagikan_kode_refs"
+                            android:gravity="center"
+                            android:text="BAGIKAN"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            android:clickable="true"
+
+                            android:layout_width="100dp"
+                            android:background="@color/secondary"
+                            android:layout_height="match_parent"
+
+                            android:focusable="true" />
+                    </androidx.cardview.widget.CardView>
+                </com.google.android.flexbox.FlexboxLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
+
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingLeft="10dp"
+                android:hint="Masukkan Kode Teman"
+                android:textColorHint="@color/secondary"
+                android:textColor="@color/secondary"
+                android:background="@drawable/colored_border_text_input"
+                />
+            <androidx.cardview.widget.CardView
+                android:layout_width="100dp"
+                android:layout_gravity="end"
+                app:cardCornerRadius="10dp"
+                android:layout_height="match_parent">
+                <TextView
+                    android:gravity="center"
+                    android:text="TAMBAHKAN"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:clickable="true"
+
+                    android:layout_width="100dp"
+                    android:background="@color/secondary"
+                    android:layout_height="match_parent"
+
+                    android:focusable="true" />
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+
+</com.google.android.flexbox.FlexboxLayout>

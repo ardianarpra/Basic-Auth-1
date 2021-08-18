@@ -189,6 +189,9 @@
         <action
             android:id="@+id/action_akunFragment_to_editAkunFragment"
             app:destination="@id/editAkunFragment" />
+        <action
+            android:id="@+id/action_akunFragment_to_ringkasanAkunFragment"
+            app:destination="@id/ringkasanAkunFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
@@ -247,4 +250,9 @@
             android:name="tipe"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/ringkasanAkunFragment"
+        android:name="com.sst.ngisiyuk.RingkasanAkunFragment"
+        android:label="fragment_ringkasan_akun"
+        tools:layout="@layout/fragment_ringkasan_akun" />
 </navigation>

@@ -3,7 +3,7 @@
     android:layout_width="80dp"
     android:clickable="true"
     android:background="?selectableItemBackground"
-    android:layout_height="wrap_content"
+    android:layout_height="100dp"
     app:alignItems="center"
     app:flexDirection="column"
     app:justifyContent="flex_start"
@@ -16,7 +16,7 @@
                 android:scaleType="fitCenter"
                 android:id="@+id/list_produk_gambar"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="60dp"
                 android:src="@drawable/game"
                 android:layout_marginBottom="5dp"
                 />

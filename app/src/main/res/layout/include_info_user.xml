@@ -1,45 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView android:layout_width="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
 
+<com.google.android.flexbox.FlexboxLayout android:paddingVertical="20dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    app:cardElevation="5dp"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <com.google.android.flexbox.FlexboxLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#58BCFF"
-        android:paddingHorizontal="40dp"
-        app:flexDirection="column"
-        app:justifyContent="space_between">
+    android:paddingHorizontal="40dp"
+    app:flexDirection="column"
+    app:justifyContent="space_between"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <com.google.android.flexbox.FlexboxLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:alignItems="center"
-            app:justifyContent="center">
+            app:justifyContent="center"
+            >
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_width="0dp"
+                app:layout_flexGrow="1"
+                app:alignItems="center"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/im_logo_flat"
+                    />
+
+                <TextView
+                    android:id="@+id/nominal_saldo_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rp. 100.000"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    />
+            </com.google.android.flexbox.FlexboxLayout>
 
             <ImageView
+                android:id="@+id/home_login_button"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/im_logo_flat"
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Saldo Anda"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/nominal_saldo_user"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Rp. 100.000"
-                android:textSize="25sp"
-
+                android:src="@drawable/ic_akun"
+                android:padding="5dp"
                 />
+
 
         </com.google.android.flexbox.FlexboxLayout>
 
@@ -131,4 +138,3 @@
     </com.google.android.flexbox.FlexboxLayout>
 
 
-</androidx.cardview.widget.CardView>

@@ -155,4 +155,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-appcheck-safetynet:16.0.0-beta02'
 
+    implementation 'com.github.jama5262:CarouselView:1.2.2'
+
+    implementation "ss.anoop:awesome-textinput-layout:1.0.3"
 }

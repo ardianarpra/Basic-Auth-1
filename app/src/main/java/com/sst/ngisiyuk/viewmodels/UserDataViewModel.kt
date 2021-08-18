@@ -29,41 +29,49 @@ class UserDataViewModel @Inject constructor(
             println(s)
         }
 
-        auth.addAuthStateListener {
-            if (it.currentUser == null){
+        auth.addAuthStateListener { firebaseAuth ->
+            if (firebaseAuth.currentUser == null){
                 userPrefs.edit().remove("id").apply()
                 userPrefs.edit().remove("pin").apply()
                 userPrefs.edit().remove("isUidCreated").apply()
                 dataUser.value = null
+
+                println("LogOut")
             } else {
-                it.currentUser?.phoneNumber?.let {
-                    viewModelScope.launch {
-                        val response = api.getProfil(it.drop(3))
-                        val isUidCreated = userPrefs.getBoolean("isUidCreated", false)
-
-                        if (!isUidCreated){
-                            userPrefs.edit().putBoolean("isUidCreated", true).apply()
-                            auth.uid?.let { uid -> api.createIdDevice(it.drop(3), uid) }
-                        }
-                        if (response.isSuccessful) dataUser.value = response.body()
-                        userPrefs.edit().putString("id", response.body()?.data?.id).apply()
-                        userPrefs.edit().putString("pin", response.body()?.data?.pin).apply()
-
-                        println(response.body())
-
-
-                    }
+                firebaseAuth.currentUser?.phoneNumber?.let {
+                    getUserData()
                 }
             }
         }
 
-        fun eraseFCM(){
+
+
+
+
+
+    }
+
+    fun eraseFCM(){
+        viewModelScope.launch {
+            api.destroyIdDevice(auth.currentUser?.phoneNumber!!.drop(3))
+        }
+    }
+
+    fun getUserData(){
+        auth.currentUser?.phoneNumber?.let {
             viewModelScope.launch {
-                api.destroyIdDevice(auth.currentUser?.phoneNumber!!.drop(3))
+                println("DI vmScope : ${it.drop(3)}")
+                val response = api.getProfil(it.drop(3))
+
+                if (response.isSuccessful) {
+                    dataUser.value = response.body()
+                    userPrefs.edit().putString("id", response.body()?.data?.id).apply()
+                    userPrefs.edit().putString("pin", response.body()?.data?.pin).apply()
+                }
+
+                println(response.body()?.data?.pin)
             }
         }
-
-
     }
 
     companion object{
