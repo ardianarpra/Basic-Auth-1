@@ -32,6 +32,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:paddingLeft="10dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/secondary"
+                android:textSize="17sp"
                 android:background="@drawable/colored_border_text_input"
                 />
 
@@ -87,6 +90,7 @@
 
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/kode_referal_teman"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:paddingLeft="10dp"
@@ -101,6 +105,7 @@
                 app:cardCornerRadius="10dp"
                 android:layout_height="match_parent">
                 <TextView
+                    android:id="@+id/button_tambahkan_referral"
                     android:gravity="center"
                     android:text="TAMBAHKAN"
                     android:textColor="@color/white"
