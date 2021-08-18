@@ -3,22 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:layout_height="wrap_content"
-    app:cardCornerRadius="20dp"
+
     app:cardElevation="5dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:justifyContent="space_between"
-        android:paddingHorizontal="20dp">
+        android:layout_height="wrap_content"
+        android:background="#58BCFF"
+        android:paddingHorizontal="40dp"
+        app:flexDirection="column"
+        app:justifyContent="space_between">
 
         <com.google.android.flexbox.FlexboxLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:flexDirection="column"
-            app:justifyContent="center"
-            >
+            app:alignItems="center"
+            app:justifyContent="center">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/im_logo_flat"
 
             <TextView
                 android:layout_width="wrap_content"
@@ -37,65 +43,88 @@
 
         </com.google.android.flexbox.FlexboxLayout>
 
+
         <com.google.android.flexbox.FlexboxLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            app:flexDirection="column"
-            app:justifyContent="center"
-            app:alignItems="flex_end"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:justifyContent="flex_end"
+            android:layout_marginTop="20dp"
             >
 
             <com.google.android.flexbox.FlexboxLayout
+
+                android:id="@+id/top_up_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:flexDirection="column">
 
-                <com.google.android.flexbox.FlexboxLayout
-                    android:id="@+id/top_up_user"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                app:flexDirection="column"
+
+                app:justifyContent="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_topup" />
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:alignItems="center"
-                    android:clickable="true"
-                    android:background="?selectableItemBackground"
-                    android:layout_marginBottom="10dp"
-                    app:justifyContent="center">
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_topup" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="Top Up"
-                        android:textSize="18sp" />
-                </com.google.android.flexbox.FlexboxLayout>
-
-                <com.google.android.flexbox.FlexboxLayout
-                    android:id="@+id/transfer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:alignItems="center"
-                    app:justifyContent="center"
-                    android:clickable="true"
-                    android:background="?selectableItemBackground"
-                    >
-
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_transfer" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:text="Transfer"
-                        android:textSize="18sp" />
-                </com.google.android.flexbox.FlexboxLayout>
+                    android:text="Top Up"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
             </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:layout_marginLeft="20dp"
+                android:id="@+id/transfer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                app:flexDirection="column"
+
+                app:justifyContent="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_transfer" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Transfer"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/minta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                app:flexDirection="column"
+
+                app:justifyContent="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_minta" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Minta"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+            </com.google.android.flexbox.FlexboxLayout>
+
 
         </com.google.android.flexbox.FlexboxLayout>
 

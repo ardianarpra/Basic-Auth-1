@@ -23,24 +23,14 @@
             android:src="@drawable/im_game"/>
     </com.google.android.flexbox.FlexboxLayout>
     <TextView
+        android:layout_marginHorizontal="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Top Up Game"
+        android:text="Top Up Game Terlengkap"
         android:textColor="#1A1A1A"
         android:textStyle="bold"
         android:textSize="30dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingHorizontal="20dp"
-
-        android:text="Skin Kamu Begitu Begitu saja ??
-Modal Skill Aja Kurang !!!
-Disini Top up Lebih Mudah Dan Murah
-Buat acoout game kamu Lebih dari yang lainnya"
-        />
 
 
 </com.google.android.flexbox.FlexboxLayout>

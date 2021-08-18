@@ -26,18 +26,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Raih Jutaaan Rupiah"
+        android:text="Ajak teman dan dapatkan keuntungan transaksi"
         android:textColor="#1A1A1A"
         android:textStyle="bold"
         android:textSize="30dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingHorizontal="20dp"
-
-        android:text="Ayo ajak teman - teman kamu utuk instal, dapatkan jutaan rupiah !!!"
-        />
 
 
 </com.google.android.flexbox.FlexboxLayout>

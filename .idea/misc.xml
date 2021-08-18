@@ -8,18 +8,27 @@
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/drawable/bottom_border.xml" value="0.34933605720122574" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/drawable/bottom_corner.xml" value="0.34933605720122574" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/drawable/colored_border.xml" value="0.34933605720122574" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/drawable/default_dot.xml" value="0.34933605720122574" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/drawable/selected_dot.xml" value="0.34933605720122574" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/anim_idle.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/detail_top_up_layout.xml" value="0.3359375" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_first.xml" value="0.3359375" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_fourth.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_game_praba_digi.xml" value="0.17864583333333334" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_home.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_p_l_n_pasca.xml" value="0.17864583333333334" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_pulsa.xml" value="0.3359375" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_second.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_sign_in.xml" value="0.3359375" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_splash.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_sub_of_sub_produk.xml" value="0.17864583333333334" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_sub_produk.xml" value="0.17864583333333334" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_third.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_top_up.xml" value="0.25" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_transfer.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_universal.xml" value="0.17864583333333334" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/fragment_welcome.xml" value="0.3359375" />
+        <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/include_info_user.xml" value="0.5" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/list_bank_layout.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/popup_login.xml" value="0.3359375" />
         <entry key="..\:/Angga/Compose/Ngisiyuk - Copy/app/src/main/res/layout/progress_dialog.xml" value="0.17864583333333334" />

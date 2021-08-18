@@ -24,7 +24,7 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:backgroundTint="#FFD700"
+        android:backgroundTint="#0099FF"
         app:srcCompat="@drawable/ic_round_navigate_next_24"
         app:tint="@color/white"
         app:fabCustomSize="50dp"
